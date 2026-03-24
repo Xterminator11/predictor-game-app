@@ -1,0 +1,1 @@
+{"UserName": {"0": "amanverma", "1": "gururajrao", "2": "prabhuantony", "3": "aanjopremlal", "4": "vishwakanthreddych", "5": "nishantsingh"}, "AggregatePoints": {"0": 768.18, "1": 747.63, "2": 692.24, "3": 686.63, "4": 637.52, "5": 7.35}}
