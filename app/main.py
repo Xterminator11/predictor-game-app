@@ -1,22 +1,19 @@
-import streamlit as st
 import json
 import os
 import socket
-import boto3
-from jsonpath_ng.ext import parse
-from datetime import datetime, timedelta
 import datetime as dt
+import boto3
+from datetime import datetime
+import streamlit as st
 import pandas as pd
 import botocore
-from botocore.errorfactory import ClientError
-from jsonpath_ng.ext import parse
 from modules.navigator import Navbar
 
-from modules.util_app import get_bucket_name
+from modules.util_app import get_bucket_name, get_match_details_json
 
-BUCKET_NAME = get_bucket_name
+BUCKET_NAME = get_bucket_name()
 st.suspend = False
-st.ipl_completed = True
+st.ipl_completed = False
 
 st.session_state.json_metadata = json.loads(
     open(
@@ -87,7 +84,7 @@ def get_booster_data_file(match_id):
 def get_booster_information():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         return False, False, False, {}
     else:
         ## Add headers
@@ -130,7 +127,7 @@ def get_booster_information():
 def store_booster_information():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         return False, False, False, {}
     else:
         ## Add headers
@@ -162,7 +159,7 @@ def store_booster_information():
 def clear_booster_details():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         return False, False, False, {}
     else:
         ## Add headers
@@ -190,7 +187,7 @@ def clear_booster_details():
 def store_data_values():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         pass
     else:
         ## Add headers
@@ -230,7 +227,7 @@ def store_data_values():
 
 def get_next_match_from_json() -> list:
 
-    match_details_json = os.path.join(os.path.dirname(__file__), "match_details.json")
+    match_details_json = get_match_details_json(data_type="pandas")
 
     data_frame = pd.read_json(
         match_details_json,
@@ -258,7 +255,8 @@ def body_rendering():
     ## Now lets add match details.
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
+        pass
     else:
         ## Add headers
 
@@ -294,7 +292,8 @@ def body_rendering():
 def form_rendering():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
+        pass
     else:
         ## Add headers
 
@@ -374,7 +373,7 @@ def form_rendering():
 def check_match_date_selected():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         return True
     else:
         ## Add headers
@@ -398,7 +397,7 @@ def check_match_date_selected():
 def clear_selections():
 
     if len(st.session_state.next_matches) == 0:
-        st.subheader("No Matches to be played")
+        # st.subheader("No Matches to be played")
         return True
     else:
         ## Add headers

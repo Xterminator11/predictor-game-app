@@ -9,9 +9,9 @@ import socket
 import botocore
 from botocore.errorfactory import ClientError
 import datetime as dt
-from modules.util_app import get_bucket_name
+from modules.util_app import get_bucket_name, get_match_details_json
 
-BUCKET_NAME = get_bucket_name
+BUCKET_NAME = get_bucket_name()
 
 st.set_page_config(
     page_title="Predictor Statistics",
@@ -28,13 +28,7 @@ st.session_state.json_metadata = json.loads(
     ).read()
 )
 
-st.session_state.json_match = json.loads(
-    open(
-        os.path.join(os.path.dirname(os.path.dirname(__file__)), "match_details.json"),
-        "r",
-        encoding="utf-8",
-    ).read()
-)
+st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
 
@@ -47,9 +41,7 @@ def login_screen():
 
 def get_next_match_from_json() -> list:
 
-    match_details_json = os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), "match_details.json"
-    )
+    match_details_json = get_match_details_json(data_type="pandas")
 
     data_frame = pd.read_json(
         match_details_json,
@@ -354,19 +346,20 @@ else:
             st.session_state.current_match_dictionary = {}
 
         st.subheader("This section contains individual games")
+        match_number_current = st.session_state.current_match_dictionary.get(
+            "MatchNumber", 0
+        )
         selections = []
         for matches in st.session_state.json_match:
             if matches.get("MatchCompletionStatus") == "Completed" or matches.get(
                 "MatchNumber"
-            ) == (st.session_state.current_match_dictionary.get("MatchNumber") - 1):
+            ) == (match_number_current - 1):
                 match_number = (
                     str(matches.get("MatchNumber"))
                     if matches.get("MatchNumber") > 9
                     else f"0{matches.get('MatchNumber')}"
                 )
-                if matches.get("MatchNumber") == (
-                    st.session_state.current_match_dictionary.get("MatchNumber") - 1
-                ):
+                if matches.get("MatchNumber") == (match_number_current - 1):
                     if matches.get("MatchCompletionStatus") == "Completed":
                         selections.append(
                             f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
@@ -437,19 +430,20 @@ else:
                 st.session_state.current_match_dictionary = {}
 
             st.subheader("This section contains individual games")
+            match_number_current = st.session_state.current_match_dictionary.get(
+                "MatchNumber", 0
+            )
             selections = []
             for matches in st.session_state.json_match:
                 if matches.get("MatchCompletionStatus") == "Completed" or matches.get(
                     "MatchNumber"
-                ) == (st.session_state.current_match_dictionary.get("MatchNumber") - 1):
+                ) == (match_number_current - 1):
                     match_number = (
                         str(matches.get("MatchNumber"))
                         if matches.get("MatchNumber") > 9
                         else f"0{matches.get('MatchNumber')}"
                     )
-                    if matches.get("MatchNumber") == (
-                        st.session_state.current_match_dictionary.get("MatchNumber") - 1
-                    ):
+                    if matches.get("MatchNumber") == (match_number_current - 1):
                         if matches.get("MatchCompletionStatus") == "Completed":
                             selections.append(
                                 f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"

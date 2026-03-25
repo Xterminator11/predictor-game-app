@@ -8,9 +8,13 @@ import socket
 import botocore
 import datetime as dt
 
-from modules.util_app import get_bucket_name
+from modules.util_app import (
+    get_bucket_name,
+    get_match_details_json,
+    put_match_details_json,
+)
 
-BUCKET_NAME = get_bucket_name
+BUCKET_NAME = get_bucket_name()
 
 st.set_page_config(
     page_title="Leader Board",
@@ -25,13 +29,7 @@ st.session_state.json_metadata = json.loads(
     ).read()
 )
 
-st.session_state.json_match = json.loads(
-    open(
-        os.path.join(os.path.dirname(os.path.dirname(__file__)), "match_details.json"),
-        "r",
-        encoding="utf-8",
-    ).read()
-)
+st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
 
@@ -112,21 +110,8 @@ def store_match_details():
         else:
             match_details.append(matches)
 
-    match_details_path = os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), "match_details.json"
-    )
-    with open(match_details_path, "w") as f:
-        f.write(json.dumps(match_details, indent=4))
-        f.close()
-    st.session_state.json_match = json.loads(
-        open(
-            os.path.join(
-                os.path.dirname(os.path.dirname(__file__)), "match_details.json"
-            ),
-            "r",
-            encoding="utf-8",
-        ).read()
-    )
+    put_match_details_json(match_details)
+    st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 
 def update_match_label():
@@ -348,9 +333,7 @@ def create_input_form_match_details():
 
 def get_next_match_from_json() -> list:
 
-    match_details_json = os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), "match_details.json"
-    )
+    match_details_json = get_match_details_json(data_type="pandas")
 
     data_frame = pd.read_json(
         match_details_json,

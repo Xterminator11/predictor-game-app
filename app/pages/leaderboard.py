@@ -7,9 +7,9 @@ from modules.navigator import Navbar
 import socket
 import botocore
 
-from modules.util_app import get_bucket_name
+from modules.util_app import get_bucket_name, get_match_details_json
 
-BUCKET_NAME = get_bucket_name
+BUCKET_NAME = get_bucket_name()
 
 st.set_page_config(
     page_title="Leader Board",
@@ -24,13 +24,7 @@ st.session_state.json_metadata = json.loads(
     ).read()
 )
 
-st.session_state.json_match = json.loads(
-    open(
-        os.path.join(os.path.dirname(os.path.dirname(__file__)), "match_details.json"),
-        "r",
-        encoding="utf-8",
-    ).read()
-)
+st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
 
@@ -145,10 +139,10 @@ else:
 
         st.button("Log out", on_click=st.logout)
     else:
-        if not st.experimental_user.is_logged_in or "name" not in st.experimental_user:
+        if not st.user.is_logged_in or "name" not in st.user:
             login_screen()
         else:
-            st.session_state.user_name = st.experimental_user.name
+            st.session_state.user_name = st.user.name
         st.subheader("Leaderboard")
         selections = []
         get_aggregate_data()

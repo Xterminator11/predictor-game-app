@@ -4,9 +4,9 @@ import json
 import pandas as pd
 import os
 
-from modules.util_app import get_bucket_name
+from modules.util_app import get_bucket_name, get_match_details_json
 
-BUCKET_NAME = get_bucket_name
+BUCKET_NAME = get_bucket_name()
 json_metadata = json.loads(
     open(
         os.path.join(os.path.dirname(os.path.dirname(__file__)), "metadata.json"),
@@ -15,13 +15,7 @@ json_metadata = json.loads(
     ).read()
 )
 
-json_match = json.loads(
-    open(
-        os.path.join(os.path.dirname(os.path.dirname(__file__)), "match_details.json"),
-        "r",
-        encoding="utf-8",
-    ).read()
-)
+json_match = json.loads(get_match_details_json(data_type="json"))
 
 
 def get_booster_data_file(match_id):

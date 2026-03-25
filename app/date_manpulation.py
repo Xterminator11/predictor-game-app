@@ -3,6 +3,7 @@ import datetime as dt
 from pytz import timezone
 import pandas as pd
 import os
+from modules.util_app import get_match_details_json
 
 
 def get_current_date_time():
@@ -12,7 +13,7 @@ def get_current_date_time():
 
 def get_next_match_from_json() -> list:
 
-    match_details_json = os.path.join(os.path.dirname(__file__), "match_details.json")
+    match_details_json = get_match_details_json(data_type="pandas")
 
     data_frame = pd.read_json(
         match_details_json,
@@ -35,7 +36,6 @@ def get_next_match_from_json() -> list:
 
 
 if __name__ == "__main__":
-
     next_matches = get_next_match_from_json()
     if len(next_matches) == 0:
         print("No Matches to be played")
