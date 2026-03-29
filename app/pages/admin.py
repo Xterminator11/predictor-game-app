@@ -14,6 +14,8 @@ from modules.util_app import (
     put_match_details_json,
 )
 
+from modules.run_aggregate_cycle import main as run_aggregate_cycle
+
 BUCKET_NAME = get_bucket_name()
 
 st.set_page_config(
@@ -32,6 +34,10 @@ st.session_state.json_metadata = json.loads(
 st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
+
+
+def refresh_match_details():
+    st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 
 def login_screen():
@@ -78,6 +84,11 @@ def store_match_details():
     st.text("Match Submitted")
 
     match_details = []
+    # update_match_label()
+    st.session_state.match_number_selected = int(
+        st.session_state.selected_option.split("-")[0].strip()
+    )
+
     print(f"Current match number selected: {st.session_state.match_number_selected}")
     for matches in st.session_state.json_match:
         print(f"Current match number in loop: {matches.get('MatchNumber')}")
@@ -114,6 +125,15 @@ def store_match_details():
 
     put_match_details_json(match_details)
     st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
+
+    # Run Aggregation Logic Here
+    try:
+        run_aggregate_cycle()
+        st.success(
+            "Match details updated and aggregation cycle completed successfully!"
+        )
+    except Exception as e:
+        st.error(f"An error occurred while running the aggregation cycle: {str(e)}")
 
 
 def update_match_label():
@@ -257,6 +277,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=300,
+            value=st.session_state.get("HomeTeam_totalscore", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Wickets",
@@ -264,6 +285,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=10,
+            value=st.session_state.get("HomeTeam_wickets", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Fours",
@@ -271,6 +293,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
+            value=st.session_state.get("HomeTeam_fours", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Sixes",
@@ -278,6 +301,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
+            value=st.session_state.get("HomeTeam_sixes", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Powerplay",
@@ -285,11 +309,13 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=150,
+            value=st.session_state.get("HomeTeam_powerplay", 0),
         )
         st.selectbox(
             label=f"{st.session_state.home_team} Result",
             key="HomeTeam_winner",
             options=["Won", "Lost"],
+            index=0 if st.session_state.get("HomeTeam_winner", "Won") == "Won" else 1,
         )
     with away_team:
         st.number_input(
@@ -298,6 +324,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=300,
+            value=st.session_state.get("AwayTeam_totalscore", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Wickets",
@@ -305,6 +332,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=10,
+            value=st.session_state.get("AwayTeam_wickets", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Fours",
@@ -312,6 +340,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
+            value=st.session_state.get("AwayTeam_fours", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Sixes",
@@ -319,6 +348,7 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
+            value=st.session_state.get("AwayTeam_sixes", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Powerplay",
@@ -326,11 +356,13 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=150,
+            value=st.session_state.get("AwayTeam_powerplay", 0),
         )
         st.selectbox(
             label=f"{st.session_state.away_team} Result",
             key="AwayTeam_winner",
             options=["Won", "Lost"],
+            index=0 if st.session_state.get("AwayTeam_winner", "Won") == "Won" else 1,
         )
 
 
@@ -360,7 +392,7 @@ def get_next_match_from_json() -> list:
     )
 
 
-if socket.gethostname() == "MacBookPro.lan":
+if socket.gethostname() == "Gururajs-MacBook-Pro.local":
     st.session_state.user_name = "Gururaj Rao"
     st.subheader("Admin Page")
     st.session_state.next_matches = json.loads(get_next_match_from_json())
@@ -420,7 +452,7 @@ if socket.gethostname() == "MacBookPro.lan":
                 options=selections,
                 on_change=update_match_label,
                 # index=None,
-                # placeholder="Choose a match",
+                placeholder="Choose a match",
                 key="selected_option",
                 disabled=False,
             )
@@ -496,7 +528,7 @@ else:
                     options=selections,
                     on_change=update_match_label,
                     # index=None,
-                    # placeholder="Choose a match",
+                    placeholder="Choose a match",
                     key="selected_option",
                     disabled=False,
                 )

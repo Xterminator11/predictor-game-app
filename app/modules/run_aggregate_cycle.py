@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import os
 
-from util_app import get_bucket_name, get_match_details_json
+from modules.util_app import get_bucket_name, get_match_details_json
 
 BUCKET_NAME = get_bucket_name()
 json_metadata = json.loads(
@@ -259,73 +259,72 @@ def get_user_booster(match_id, user):
         )
 
 
-s3 = boto3.resource("s3")
-s3_client = boto3.client("s3")
-my_bucket = s3.Bucket(BUCKET_NAME)
-user_list = []
+def main():
+    s3 = boto3.resource("s3")
+    s3_client = boto3.client("s3")
+    my_bucket = s3.Bucket(BUCKET_NAME)
+    user_list = []
 
-for my_bucket_object in my_bucket.objects.all():
-    if str(my_bucket_object.key).startswith("aggregates/"):
-        continue
-    else:
-        user_list.append(my_bucket_object.key.split("/")[0])
+    for my_bucket_object in my_bucket.objects.all():
+        if str(my_bucket_object.key).startswith("aggregates/"):
+            continue
+        else:
+            user_list.append(my_bucket_object.key.split("/")[0])
 
+    final_data_to_save_in_s3 = load_match_result_published()
 
-final_data_to_save_in_s3 = load_match_result_published()
+    for matches in json_match:
+        print("Running for match number {}".format(matches.get("MatchNumber")))
+        if matches.get("ResultsPublished") is True:
+            for users in list(set(user_list)):
+                match_number_long = f"{str(matches.get('MatchNumber')).zfill(2)} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')}"
+                if is_match_completed(
+                    match_id=match_number_long,
+                    user_name=users,
+                    contents=final_data_to_save_in_s3,
+                ):
+                    print(f"{match_number_long} already updated for user {users}")
+                else:
+                    global booster_data
+                    booster_data = get_booster_data(users, matches.get("MatchNumber"))
 
-for matches in json_match:
-    print("Running for match number {}".format(matches.get("MatchNumber")))
-    if matches.get("ResultsPublished") is True:
-        for users in list(set(user_list)):
-            match_number_long = f"{str(matches.get('MatchNumber')).zfill(2)} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')}"
-            if is_match_completed(
-                match_id=match_number_long,
-                user_name=users,
-                contents=final_data_to_save_in_s3,
-            ):
-                print(f"{match_number_long} already updated for user {users}")
-            else:
-                global booster_data
-                booster_data = get_booster_data(users, matches.get("MatchNumber"))
+                    data_point = update_statistics(matches, users)
+                    print(f"{users} : {float(data_point)}")
+                    final_data_to_save_in_s3.append(
+                        {
+                            "MatchNumber": match_number_long,
+                            "UserName": users,
+                            "AggregatePoints": float(data_point),
+                            "BoosterIndicator": str(
+                                get_user_booster(matches.get("MatchNumber"), users)
+                            ),
+                        }
+                    )
+        else:
+            continue
 
-                data_point = update_statistics(matches, users)
-                print(f"{users} : {float(data_point)}")
-                final_data_to_save_in_s3.append(
-                    {
-                        "MatchNumber": match_number_long,
-                        "UserName": users,
-                        "AggregatePoints": float(data_point),
-                        "BoosterIndicator": str(
-                            get_user_booster(matches.get("MatchNumber"), users)
-                        ),
-                    }
-                )
-    else:
-        continue
+    # print(json.dumps(final_data_to_save_in_s3, indent=3))
 
-# print(json.dumps(final_data_to_save_in_s3, indent=3))
+    s3object = "aggregates/transactional.txt"
+    s3 = boto3.resource("s3")
+    s3object = s3.Object(BUCKET_NAME, s3object)
+    s3object.put(Body=(bytes(json.dumps(final_data_to_save_in_s3).encode("UTF-8"))))
 
-s3object = "aggregates/transactional.txt"
-s3 = boto3.resource("s3")
-s3object = s3.Object(BUCKET_NAME, s3object)
-s3object.put(Body=(bytes(json.dumps(final_data_to_save_in_s3).encode("UTF-8"))))
+    aggregate_df = pd.DataFrame(final_data_to_save_in_s3)
+    aggregate_df = aggregate_df[["UserName", "AggregatePoints"]]
 
+    grouped_counts = (
+        aggregate_df.groupby("UserName")
+        .sum()
+        .sort_values(by="AggregatePoints", ascending=False)
+    )
+    grouped_counts = grouped_counts.reset_index(names="UserName")
+    # sum_values = grouped["AggregatePoints"].sum()
+    print(grouped_counts)
 
-aggregate_df = pd.DataFrame(final_data_to_save_in_s3)
-aggregate_df = aggregate_df[["UserName", "AggregatePoints"]]
-
-grouped_counts = (
-    aggregate_df.groupby("UserName")
-    .sum()
-    .sort_values(by="AggregatePoints", ascending=False)
-)
-grouped_counts = grouped_counts.reset_index(names="UserName")
-# sum_values = grouped["AggregatePoints"].sum()
-print(grouped_counts)
-
-s3object = "aggregates/leaderboard.txt"
-s3 = boto3.resource("s3")
-s3object = s3.Object(BUCKET_NAME, s3object)
-s3object.put(
-    Body=(bytes(json.dumps(json.loads(grouped_counts.to_json())).encode("UTF-8")))
-)
+    s3object = "aggregates/leaderboard.txt"
+    s3 = boto3.resource("s3")
+    s3object = s3.Object(BUCKET_NAME, s3object)
+    s3object.put(
+        Body=(bytes(json.dumps(json.loads(grouped_counts.to_json())).encode("UTF-8")))
+    )
