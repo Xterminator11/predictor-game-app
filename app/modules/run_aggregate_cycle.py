@@ -271,6 +271,7 @@ def main():
         else:
             user_list.append(my_bucket_object.key.split("/")[0])
 
+    user_list.remove("matches")
     final_data_to_save_in_s3 = load_match_result_published()
 
     for matches in json_match:

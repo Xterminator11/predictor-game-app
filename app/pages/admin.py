@@ -265,8 +265,8 @@ def cleanup_previous_instance():
 
 
 def create_input_form_match_details():
-    cleanup_previous_instance()
-    # update_match_label()
+    # Do not clear values here. `update_match_label` populates session_state
+    # when a match is selected, and clearing at render time wipes those values.
     home_team, away_team = st.columns(2, gap="medium")
     st.text_input(label="StatsLink", key="StatsLink")
     st.button(label="Submit", on_click=store_match_details)
@@ -422,16 +422,29 @@ if socket.gethostname() == "Gururajs-MacBook-Pro.local":
                     == (
                         st.session_state.current_match_dictionary.get("MatchNumber") - 2
                     )
+                    or matches.get("MatchNumber")
+                    == (st.session_state.current_match_dictionary.get("MatchNumber"))
                 ):
                     match_number = (
                         str(matches.get("MatchNumber"))
                         if matches.get("MatchNumber") > 9
                         else f"0{matches.get('MatchNumber')}"
                     )
-                    if matches.get("MatchNumber") == (
-                        st.session_state.current_match_dictionary.get("MatchNumber") - 1
-                    ) or matches.get("MatchNumber") == (
-                        st.session_state.current_match_dictionary.get("MatchNumber") - 2
+                    if (
+                        matches.get("MatchNumber")
+                        == (
+                            st.session_state.current_match_dictionary.get("MatchNumber")
+                            - 1
+                        )
+                        or matches.get("MatchNumber")
+                        == (
+                            st.session_state.current_match_dictionary.get("MatchNumber")
+                            - 2
+                        )
+                        or matches.get("MatchNumber")
+                        == (
+                            st.session_state.current_match_dictionary.get("MatchNumber")
+                        )
                     ):
                         if matches.get("MatchCompletionStatus") == "Completed":
                             selections.append(
@@ -497,18 +510,37 @@ else:
                             st.session_state.current_match_dictionary.get("MatchNumber")
                             - 2
                         )
+                        or matches.get("MatchNumber")
+                        == (
+                            st.session_state.current_match_dictionary.get("MatchNumber")
+                        )
                     ):
                         match_number = (
                             str(matches.get("MatchNumber"))
                             if matches.get("MatchNumber") > 9
                             else f"0{matches.get('MatchNumber')}"
                         )
-                        if matches.get("MatchNumber") == (
-                            st.session_state.current_match_dictionary.get("MatchNumber")
-                            - 1
-                        ) or matches.get("MatchNumber") == (
-                            st.session_state.current_match_dictionary.get("MatchNumber")
-                            - 2
+                        if (
+                            matches.get("MatchNumber")
+                            == (
+                                st.session_state.current_match_dictionary.get(
+                                    "MatchNumber"
+                                )
+                                - 1
+                            )
+                            or matches.get("MatchNumber")
+                            == (
+                                st.session_state.current_match_dictionary.get(
+                                    "MatchNumber"
+                                )
+                                - 2
+                            )
+                            or matches.get("MatchNumber")
+                            == (
+                                st.session_state.current_match_dictionary.get(
+                                    "MatchNumber"
+                                )
+                            )
                         ):
                             if matches.get("MatchCompletionStatus") == "Completed":
                                 selections.append(
