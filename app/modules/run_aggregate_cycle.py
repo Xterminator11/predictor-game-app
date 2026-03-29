@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import os
 
-from modules.util_app import get_bucket_name, get_match_details_json
+from util_app import get_bucket_name, get_match_details_json
 
 BUCKET_NAME = get_bucket_name()
 json_metadata = json.loads(

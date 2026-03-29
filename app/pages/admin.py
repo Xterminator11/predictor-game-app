@@ -35,7 +35,7 @@ Navbar()
 
 
 def login_screen():
-    st.header("Welcome to Predictor App for IPL 2025")
+    st.header("Welcome to Predictor App for IPL 2026")
     st.subheader("Please log in.")
     st.button("Log in with Google", on_click=st.login)
 
@@ -78,7 +78,9 @@ def store_match_details():
     st.text("Match Submitted")
 
     match_details = []
+    print(f"Current match number selected: {st.session_state.match_number_selected}")
     for matches in st.session_state.json_match:
+        print(f"Current match number in loop: {matches.get('MatchNumber')}")
         if matches.get("MatchNumber") == st.session_state.match_number_selected:
             matches["PredictionResults"] = {
                 "winner": update_results("winner"),
@@ -133,7 +135,8 @@ def update_match_label():
             st.session_state.selected_option.split("-")[0].strip()
         )
 
-        # Updata Values
+        print(f"Selected Match Number: {st.session_state.match_number_selected}")
+        # Update Values
 
         for matches in st.session_state.json_match:
             if matches.get("MatchNumber") == st.session_state.match_number_selected:
@@ -444,7 +447,7 @@ else:
         if "away_team" not in st.session_state:
             st.session_state.away_team = "AwayTeam"
         if "match_number_selected" not in st.session_state:
-            st.session_state.match_number_selected = 0
+            st.session_state.match_number_selected = 1
 
         if st.session_state.user_name == "Gururaj Rao":
             with st.container():

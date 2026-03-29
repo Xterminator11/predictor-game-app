@@ -18,7 +18,7 @@ def get_bucket_name():
     """Function to get the bucket name from the .env file using pydantic settings."""
 
     settings = Settings()
-    print(settings.__dict__)
+    # print(settings.__dict__)
     return settings.BUCKET_NAME
 
 

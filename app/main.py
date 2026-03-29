@@ -38,7 +38,7 @@ st.markdown(title_alignment, unsafe_allow_html=True)
 
 
 def login_screen():
-    st.header("Welcome to Predictor App for IPL 2025")
+    st.header("Welcome to Predictor App for IPL 2026")
     st.subheader("Please log in.")
     st.button("Log in with Google", on_click=st.login)
 
