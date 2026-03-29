@@ -277,7 +277,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=300,
-            value=st.session_state.get("HomeTeam_totalscore", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Wickets",
@@ -285,7 +284,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=10,
-            value=st.session_state.get("HomeTeam_wickets", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Fours",
@@ -293,7 +291,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
-            value=st.session_state.get("HomeTeam_fours", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Sixes",
@@ -301,7 +298,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
-            value=st.session_state.get("HomeTeam_sixes", 0),
         )
         st.number_input(
             label=f"{st.session_state.home_team} Powerplay",
@@ -309,13 +305,11 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=150,
-            value=st.session_state.get("HomeTeam_powerplay", 0),
         )
         st.selectbox(
             label=f"{st.session_state.home_team} Result",
             key="HomeTeam_winner",
             options=["Won", "Lost"],
-            index=0 if st.session_state.get("HomeTeam_winner", "Won") == "Won" else 1,
         )
     with away_team:
         st.number_input(
@@ -324,7 +318,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=300,
-            value=st.session_state.get("AwayTeam_totalscore", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Wickets",
@@ -332,7 +325,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=10,
-            value=st.session_state.get("AwayTeam_wickets", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Fours",
@@ -340,7 +332,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
-            value=st.session_state.get("AwayTeam_fours", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Sixes",
@@ -348,7 +339,6 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=50,
-            value=st.session_state.get("AwayTeam_sixes", 0),
         )
         st.number_input(
             label=f"{st.session_state.away_team} Powerplay",
@@ -356,13 +346,11 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=150,
-            value=st.session_state.get("AwayTeam_powerplay", 0),
         )
         st.selectbox(
             label=f"{st.session_state.away_team} Result",
             key="AwayTeam_winner",
             options=["Won", "Lost"],
-            index=0 if st.session_state.get("AwayTeam_winner", "Won") == "Won" else 1,
         )
 
 
