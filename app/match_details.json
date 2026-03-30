@@ -25,6 +25,10 @@
       "AwayTeam_powerplay": "49",
       "HomeTeam_winner": "Won",
       "AwayTeam_winner": "Lost",
+      "HomeTeam_dotballs": "28",
+      "AwayTeam_dotballs": "34",
+      "HomeTeam_highest_over_score": "22",
+      "AwayTeam_highest_over_score": "21",
       "StatsLink": "https://www.espncricinfo.com/series/ipl-2026-1510719/royal-challengers-bengaluru-vs-sunrisers-hyderabad-1st-match-1527674/match-statistics"
     },
     "PredictionResults": {
@@ -33,7 +37,9 @@
       "sixes": "Royal Challengers Bengaluru",
       "wickets": "Royal Challengers Bengaluru",
       "powerplay": "Royal Challengers Bengaluru",
-      "totalscore": "404"
+      "totalscore": "404",
+      "highest_over_score": "22",
+      "dotballs": "Royal Challengers Bengaluru"
     }
   },
   {
@@ -47,30 +53,36 @@
     "HomeTeamScore": null,
     "AwayTeamScore": null,
     "ActiveIndicator": false,
-    "MatchCompletionStatus": "Not Started",
-    "ResultsPublished": false,
+    "MatchCompletionStatus": "Completed",
+    "ResultsPublished": true,
     "ResultsStats": {
-      "HomeTeam_totalscore": "NOT_PUBLISHED",
-      "HomeTeam_wickets": "NOT_PUBLISHED",
-      "AwayTeam_totalscore": "NOT_PUBLISHED",
-      "AwayTeam_wickets": "NOT_PUBLISHED",
-      "AwayTeam_fours": "NOT_PUBLISHED",
-      "AwayTeam_sixes": "NOT_PUBLISHED",
-      "HomeTeam_fours": "NOT_PUBLISHED",
-      "HomeTeam_sixes": "NOT_PUBLISHED",
-      "HomeTeam_powerplay": "NOT_PUBLISHED",
-      "AwayTeam_powerplay": "NOT_PUBLISHED",
-      "HomeTeam_winner": "NOT_PUBLISHED",
-      "AwayTeam_winner": "NOT_PUBLISHED",
-      "StatsLink": "NOT_PUBLISHED"
+      "HomeTeam_totalscore": "224",
+      "HomeTeam_wickets": "4",
+      "AwayTeam_totalscore": "220",
+      "AwayTeam_wickets": "4",
+      "AwayTeam_fours": "20",
+      "AwayTeam_sixes": "10",
+      "HomeTeam_fours": "21",
+      "HomeTeam_sixes": "14",
+      "HomeTeam_powerplay": "80",
+      "AwayTeam_powerplay": "78",
+      "HomeTeam_winner": "Won",
+      "AwayTeam_winner": "Lost",
+      "HomeTeam_dotballs": "30",
+      "AwayTeam_dotballs": "27",
+      "HomeTeam_highest_over_score": "19",
+      "AwayTeam_highest_over_score": "26",
+      "StatsLink": "https://www.espncricinfo.com/series/ipl-2026-1510719/mumbai-indians-vs-kolkata-knight-riders-2nd-match-1527675/match-statistics"
     },
     "PredictionResults": {
-      "winner": "NOT_PUBLISHED",
-      "fours": "NOT_PUBLISHED",
-      "sixes": "NOT_PUBLISHED",
-      "wickets": "NOT_PUBLISHED",
-      "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "winner": "Mumbai Indians",
+      "fours": "Mumbai Indians",
+      "sixes": "Mumbai Indians",
+      "wickets": "Tie",
+      "powerplay": "Mumbai Indians",
+      "totalscore": "444",
+      "highest_over_score": "26",
+      "dotballs": "Kolkata Knight Riders"
     }
   },
   {
@@ -99,6 +111,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -107,7 +123,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -136,6 +154,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -144,7 +166,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -173,6 +197,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -181,7 +209,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -210,6 +240,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -218,7 +252,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -247,6 +283,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -255,7 +295,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -284,6 +326,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -292,7 +338,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -321,6 +369,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -329,7 +381,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -358,6 +412,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -366,7 +424,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -395,6 +455,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -403,7 +467,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -432,6 +498,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -440,7 +510,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -469,6 +541,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -477,7 +553,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -506,6 +584,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -514,7 +596,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -543,6 +627,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -551,7 +639,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -580,6 +670,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -588,7 +682,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -617,6 +713,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -625,7 +725,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -654,6 +756,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -662,7 +768,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -691,6 +799,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -699,7 +811,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -728,6 +842,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -736,7 +854,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -765,6 +885,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -773,7 +897,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -802,6 +928,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -810,7 +940,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -839,6 +971,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -847,7 +983,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -876,6 +1014,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -884,7 +1026,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -913,6 +1057,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -921,7 +1069,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -950,6 +1100,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -958,7 +1112,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -987,6 +1143,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -995,7 +1155,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1024,6 +1186,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1032,7 +1198,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1061,6 +1229,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1069,7 +1241,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1098,6 +1272,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1106,7 +1284,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1135,6 +1315,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1143,7 +1327,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1172,6 +1358,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1180,7 +1370,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1209,6 +1401,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1217,7 +1413,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1246,6 +1444,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1254,7 +1456,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1283,6 +1487,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1291,7 +1499,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1320,6 +1530,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1328,7 +1542,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1357,6 +1573,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1365,7 +1585,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1394,6 +1616,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1402,7 +1628,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1431,6 +1659,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1439,7 +1671,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1468,6 +1702,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1476,7 +1714,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1505,6 +1745,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1513,7 +1757,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1542,6 +1788,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1550,7 +1800,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1579,6 +1831,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1587,7 +1843,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1616,6 +1874,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1624,7 +1886,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1653,6 +1917,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1661,7 +1929,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1690,6 +1960,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1698,7 +1972,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1727,6 +2003,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1735,7 +2015,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1764,6 +2046,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1772,7 +2058,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1801,6 +2089,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1809,7 +2101,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1838,6 +2132,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1846,7 +2144,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1875,6 +2175,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1883,7 +2187,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1912,6 +2218,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1920,7 +2230,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1949,6 +2261,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1957,7 +2273,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -1986,6 +2304,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -1994,7 +2316,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2023,6 +2347,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2031,7 +2359,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2060,6 +2390,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2068,7 +2402,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2097,6 +2433,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2105,7 +2445,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2134,6 +2476,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2142,7 +2488,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2171,6 +2519,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2179,7 +2531,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2208,6 +2562,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2216,7 +2574,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2245,6 +2605,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2253,7 +2617,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2282,6 +2648,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2290,7 +2660,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2319,6 +2691,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2327,7 +2703,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2356,6 +2734,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2364,7 +2746,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2393,6 +2777,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2401,7 +2789,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2430,6 +2820,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2438,7 +2832,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2467,6 +2863,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2475,7 +2875,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2504,6 +2906,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2512,7 +2918,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2541,6 +2949,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2549,7 +2961,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   },
   {
@@ -2578,6 +2992,10 @@
       "AwayTeam_powerplay": "NOT_PUBLISHED",
       "HomeTeam_winner": "NOT_PUBLISHED",
       "AwayTeam_winner": "NOT_PUBLISHED",
+      "HomeTeam_dotballs": "NOT_PUBLISHED",
+      "AwayTeam_dotballs": "NOT_PUBLISHED",
+      "HomeTeam_highest_over_score": "NOT_PUBLISHED",
+      "AwayTeam_highest_over_score": "NOT_PUBLISHED",
       "StatsLink": "NOT_PUBLISHED"
     },
     "PredictionResults": {
@@ -2586,7 +3004,9 @@
       "sixes": "NOT_PUBLISHED",
       "wickets": "NOT_PUBLISHED",
       "powerplay": "NOT_PUBLISHED",
-      "totalscore": "0"
+      "totalscore": "0",
+      "highest_over_score": "0",
+      "dotballs": "NOT_PUBLISHED"
     }
   }
 ]

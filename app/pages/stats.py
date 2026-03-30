@@ -206,7 +206,7 @@ def update_statistics():
                     else:
                         continue
             else:
-                if question.get("q_key") == "totalscore":
+                if question.get("q_key") in ["totalscore", "highest_over_score"]:
                     user_selection = 0
                 else:
                     user_selection = ""
@@ -282,7 +282,7 @@ def update_statistics():
                     else:
                         continue
             else:
-                if question.get("q_key") == "totalscore":
+                if question.get("q_key") in ["totalscore", "highest_over_score"]:
                     user_selection = 0
                 else:
                     user_selection = ""
@@ -290,9 +290,10 @@ def update_statistics():
 
             # Point Selection
 
-            if question.get("q_key") == "totalscore":
+            if question.get("q_key") in ["totalscore", "highest_over_score"]:
                 correct_score = int(correct_selection)
-                your_score = int(user_selection)
+                your_score = int(user_selection) if user_selection != "" else 0
+                
                 percentage_deviation = round(
                     (
                         (
@@ -334,7 +335,7 @@ def update_statistics():
         st.session_state.df_player = df_player
 
 
-if st.suspend == True:
+if st.suspend:
     st.header("Due to Operations Sindoor !! Prediction game is suspended")
 else:
     if socket.gethostname() == "MacBookPro.lan":

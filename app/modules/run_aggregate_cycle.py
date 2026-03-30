@@ -183,12 +183,12 @@ def update_statistics(match_status, users):
                     else:
                         continue
             else:
-                if question.get("q_key") == "totalscore":
+                if question.get("q_key") in ["totalscore", "highest_over_score"]:
                     user_selection = 0
                 else:
                     user_selection = ""
 
-            if question.get("q_key") == "totalscore":
+            if question.get("q_key") in ["totalscore", "highest_over_score"]:
                 correct_score = int(correct_selection)
                 your_score = int(user_selection)
                 percentage_deviation = round(

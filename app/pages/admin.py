@@ -51,6 +51,11 @@ def update_results(input_metrics):
         return (
             st.session_state.HomeTeam_totalscore + st.session_state.AwayTeam_totalscore
         )
+    elif input_metrics == "highest_over_score":
+        return max(
+            st.session_state.HomeTeam_highest_over_score,
+            st.session_state.AwayTeam_highest_over_score,
+        )
     elif input_metrics == "winner":
         return (
             st.session_state.home_team
@@ -66,6 +71,14 @@ def update_results(input_metrics):
                 if st.session_state.AwayTeam_wickets > st.session_state.HomeTeam_wickets
                 else st.session_state.away_team
             )
+    elif input_metrics == "dotballs":
+        if st.session_state.HomeTeam_dotballs == st.session_state.AwayTeam_dotballs:
+            return "Tie"
+        return (
+            st.session_state.home_team
+            if st.session_state.HomeTeam_dotballs < st.session_state.AwayTeam_dotballs
+            else st.session_state.away_team
+        )
     else:
         if st.session_state.get(f"HomeTeam_{input_metrics}") == st.session_state.get(
             f"AwayTeam_{input_metrics}"
@@ -99,7 +112,9 @@ def store_match_details():
                 "sixes": update_results("sixes"),
                 "wickets": update_results("wickets"),
                 "powerplay": update_results("powerplay"),
+                "dotballs": update_results("dotballs"),
                 "totalscore": str(update_results("totalscore")),
+                "highest_over_score": str(update_results("highest_over_score")),
             }
             matches["ResultsStats"] = {
                 "HomeTeam_totalscore": str(st.session_state.HomeTeam_totalscore),
@@ -112,6 +127,14 @@ def store_match_details():
                 "HomeTeam_sixes": str(st.session_state.HomeTeam_sixes),
                 "HomeTeam_powerplay": str(st.session_state.HomeTeam_powerplay),
                 "AwayTeam_powerplay": str(st.session_state.AwayTeam_powerplay),
+                "HomeTeam_dotballs": str(st.session_state.HomeTeam_dotballs),
+                "AwayTeam_dotballs": str(st.session_state.AwayTeam_dotballs),
+                "HomeTeam_highest_over_score": str(
+                    st.session_state.HomeTeam_highest_over_score
+                ),
+                "AwayTeam_highest_over_score": str(
+                    st.session_state.AwayTeam_highest_over_score
+                ),
                 "HomeTeam_winner": str(st.session_state.HomeTeam_winner),
                 "AwayTeam_winner": str(st.session_state.AwayTeam_winner),
                 "StatsLink": str(st.session_state.StatsLink),
@@ -138,6 +161,11 @@ def store_match_details():
 
 def update_match_label():
     if "selected_option" in st.session_state:
+        def _int_or_zero(value):
+            if value in (None, "", "NOT_PUBLISHED"):
+                return 0
+            return int(value)
+
         st.session_state.home_team = (
             st.session_state.selected_option.split("-")[1]
             .split("(")[0]
@@ -160,81 +188,62 @@ def update_match_label():
 
         for matches in st.session_state.json_match:
             if matches.get("MatchNumber") == st.session_state.match_number_selected:
+                results_stats = matches.get("ResultsStats", {})
                 st.session_state["HomeTeam_totalscore"] = (
-                    int(matches.get("ResultsStats").get("HomeTeam_totalscore"))
-                    if matches.get("ResultsStats").get("HomeTeam_totalscore")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("HomeTeam_totalscore"))
                 )
                 st.session_state.HomeTeam_wickets = (
-                    int(matches.get("ResultsStats").get("HomeTeam_wickets"))
-                    if matches.get("ResultsStats").get("HomeTeam_wickets")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("HomeTeam_wickets"))
                 )
                 st.session_state.AwayTeam_totalscore = (
-                    int(matches.get("ResultsStats").get("AwayTeam_totalscore"))
-                    if matches.get("ResultsStats").get("AwayTeam_totalscore")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("AwayTeam_totalscore"))
                 )
                 st.session_state.AwayTeam_wickets = (
-                    int(matches.get("ResultsStats").get("AwayTeam_wickets"))
-                    if matches.get("ResultsStats").get("AwayTeam_wickets")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("AwayTeam_wickets"))
                 )
                 st.session_state.AwayTeam_fours = (
-                    int(matches.get("ResultsStats").get("AwayTeam_fours"))
-                    if matches.get("ResultsStats").get("AwayTeam_fours")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("AwayTeam_fours"))
                 )
                 st.session_state.AwayTeam_sixes = (
-                    int(matches.get("ResultsStats").get("AwayTeam_sixes"))
-                    if matches.get("ResultsStats").get("AwayTeam_sixes")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("AwayTeam_sixes"))
                 )
                 st.session_state.HomeTeam_fours = (
-                    int(matches.get("ResultsStats").get("HomeTeam_fours"))
-                    if matches.get("ResultsStats").get("HomeTeam_fours")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("HomeTeam_fours"))
                 )
                 st.session_state.HomeTeam_sixes = (
-                    int(matches.get("ResultsStats").get("HomeTeam_sixes"))
-                    if matches.get("ResultsStats").get("HomeTeam_sixes")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("HomeTeam_sixes"))
                 )
                 st.session_state.HomeTeam_powerplay = (
-                    int(matches.get("ResultsStats").get("HomeTeam_powerplay"))
-                    if matches.get("ResultsStats").get("HomeTeam_powerplay")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("HomeTeam_powerplay"))
                 )
                 st.session_state.AwayTeam_powerplay = (
-                    int(matches.get("ResultsStats").get("AwayTeam_powerplay"))
-                    if matches.get("ResultsStats").get("AwayTeam_powerplay")
-                    != "NOT_PUBLISHED"
-                    else 0
+                    _int_or_zero(results_stats.get("AwayTeam_powerplay"))
+                )
+                st.session_state.HomeTeam_dotballs = (
+                    _int_or_zero(results_stats.get("HomeTeam_dotballs"))
+                )
+                st.session_state.AwayTeam_dotballs = (
+                    _int_or_zero(results_stats.get("AwayTeam_dotballs"))
+                )
+                st.session_state.HomeTeam_highest_over_score = (
+                    _int_or_zero(results_stats.get("HomeTeam_highest_over_score"))
+                )
+                st.session_state.AwayTeam_highest_over_score = (
+                    _int_or_zero(results_stats.get("AwayTeam_highest_over_score"))
                 )
                 st.session_state.HomeTeam_winner = (
-                    matches.get("ResultsStats").get("HomeTeam_winner")
-                    if matches.get("ResultsStats").get("HomeTeam_winner")
-                    != "NOT_PUBLISHED"
+                    results_stats.get("HomeTeam_winner")
+                    if results_stats.get("HomeTeam_winner") != "NOT_PUBLISHED"
                     else "Won"
                 )
                 st.session_state.AwayTeam_winner = (
-                    matches.get("ResultsStats").get("AwayTeam_winner")
-                    if matches.get("ResultsStats").get("AwayTeam_winner")
-                    != "NOT_PUBLISHED"
+                    results_stats.get("AwayTeam_winner")
+                    if results_stats.get("AwayTeam_winner") != "NOT_PUBLISHED"
                     else "Won"
                 )
                 st.session_state.StatsLink = (
-                    matches.get("ResultsStats").get("StatsLink")
-                    if matches.get("ResultsStats").get("StatsLink") != "NOT_PUBLISHED"
+                    results_stats.get("StatsLink")
+                    if results_stats.get("StatsLink") != "NOT_PUBLISHED"
                     else "NOT_PUBLISHED"
                 )
                 break
@@ -254,6 +263,10 @@ def cleanup_previous_instance():
         "HomeTeam_sixes",
         "HomeTeam_powerplay",
         "AwayTeam_powerplay",
+        "HomeTeam_dotballs",
+        "AwayTeam_dotballs",
+        "HomeTeam_highest_over_score",
+        "AwayTeam_highest_over_score",
         "HomeTeam_winner",
         "AwayTeam_winner",
         "StatsLink",
@@ -306,6 +319,20 @@ def create_input_form_match_details():
             min_value=0,
             max_value=150,
         )
+        st.number_input(
+            label=f"{st.session_state.home_team} Dot Balls",
+            key="HomeTeam_dotballs",
+            format="%u",
+            min_value=0,
+            max_value=120,
+        )
+        st.number_input(
+            label=f"{st.session_state.home_team} Highest Over Score",
+            key="HomeTeam_highest_over_score",
+            format="%u",
+            min_value=0,
+            max_value=50,
+        )
         st.selectbox(
             label=f"{st.session_state.home_team} Result",
             key="HomeTeam_winner",
@@ -346,6 +373,20 @@ def create_input_form_match_details():
             format="%u",
             min_value=0,
             max_value=150,
+        )
+        st.number_input(
+            label=f"{st.session_state.away_team} Dot Balls",
+            key="AwayTeam_dotballs",
+            format="%u",
+            min_value=0,
+            max_value=120,
+        )
+        st.number_input(
+            label=f"{st.session_state.away_team} Highest Over Score",
+            key="AwayTeam_highest_over_score",
+            format="%u",
+            min_value=0,
+            max_value=50,
         )
         st.selectbox(
             label=f"{st.session_state.away_team} Result",

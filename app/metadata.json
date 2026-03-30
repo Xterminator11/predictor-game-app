@@ -41,6 +41,20 @@
       "q_key": "totalscore",
       "points": 10,
       "stats_key": "Team Score"
+    },
+    {
+      "questions": "Which team will have lower dot balls percentage?",
+      "display_type": "radio",
+      "q_key": "dotballs",
+      "points": 5,
+      "stats_key": "Total Dot Balls"
+    },
+    {
+      "questions": "What will be the highest score in one over in the match? (Both innings)",
+      "display_type": "slider",
+      "q_key": "highest_over_score",
+      "points": 10,
+      "stats_key": "Highest Over Score"
     }
   ],
   "teams_image": {

@@ -358,12 +358,23 @@ def form_rendering():
                         ],
                         key=question.get("q_key"),
                     )
-                elif question.get("display_type") == "slider":
+                elif question.get("display_type") == "slider" and question.get(
+                    "q_key"
+                ) in ["totalscore"]:
                     right_container.slider(
                         label="Select Below",
                         key=question.get("q_key"),
                         min_value=1,
-                        max_value=1000,
+                        max_value=600,
+                    )
+                elif question.get("display_type") == "slider" and question.get(
+                    "q_key"
+                ) in ["highest_over_score"]:
+                    right_container.slider(
+                        label="Select Below",
+                        key=question.get("q_key"),
+                        min_value=1,
+                        max_value=45,
                     )
                 else:
                     continue
