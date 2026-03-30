@@ -178,7 +178,13 @@ def update_statistics(match_status, users):
             if match_selection:
                 for q_key in match_selection:
                     if q_key.get("q_key") == question.get("q_key"):
-                        user_selection = q_key.get("q_val")
+                        if question.get("q_key") in [
+                            "totalscore",
+                            "highest_over_score",
+                        ]:
+                            user_selection = q_key.get("q_val", "0")
+                        else:
+                            user_selection = q_key.get("q_val", "")
                         break
                     else:
                         continue
@@ -190,7 +196,7 @@ def update_statistics(match_status, users):
 
             if question.get("q_key") in ["totalscore", "highest_over_score"]:
                 correct_score = int(correct_selection)
-                your_score = int(user_selection)
+                your_score = int(user_selection if user_selection != "" else 0)
                 percentage_deviation = round(
                     (
                         (
@@ -329,3 +335,7 @@ def main():
     s3object.put(
         Body=(bytes(json.dumps(json.loads(grouped_counts.to_json())).encode("UTF-8")))
     )
+
+
+if __name__ == "__main__":
+    main()
