@@ -149,18 +149,19 @@ def store_match_details():
     put_match_details_json(match_details)
     st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
-    # Run Aggregation Logic Here
-    try:
-        run_aggregate_cycle()
-        st.success(
-            "Match details updated and aggregation cycle completed successfully!"
-        )
-    except Exception as e:
-        st.error(f"An error occurred while running the aggregation cycle: {str(e)}")
+    # # Run Aggregation Logic Here
+    # try:
+    #     run_aggregate_cycle()
+    #     st.success(
+    #         "Match details updated and aggregation cycle completed successfully!"
+    #     )
+    # except Exception as e:
+    #     st.error(f"An error occurred while running the aggregation cycle: {str(e)}")
 
 
 def update_match_label():
     if "selected_option" in st.session_state:
+
         def _int_or_zero(value):
             if value in (None, "", "NOT_PUBLISHED"):
                 return 0
@@ -189,47 +190,47 @@ def update_match_label():
         for matches in st.session_state.json_match:
             if matches.get("MatchNumber") == st.session_state.match_number_selected:
                 results_stats = matches.get("ResultsStats", {})
-                st.session_state["HomeTeam_totalscore"] = (
-                    _int_or_zero(results_stats.get("HomeTeam_totalscore"))
+                st.session_state["HomeTeam_totalscore"] = _int_or_zero(
+                    results_stats.get("HomeTeam_totalscore")
                 )
-                st.session_state.HomeTeam_wickets = (
-                    _int_or_zero(results_stats.get("HomeTeam_wickets"))
+                st.session_state.HomeTeam_wickets = _int_or_zero(
+                    results_stats.get("HomeTeam_wickets")
                 )
-                st.session_state.AwayTeam_totalscore = (
-                    _int_or_zero(results_stats.get("AwayTeam_totalscore"))
+                st.session_state.AwayTeam_totalscore = _int_or_zero(
+                    results_stats.get("AwayTeam_totalscore")
                 )
-                st.session_state.AwayTeam_wickets = (
-                    _int_or_zero(results_stats.get("AwayTeam_wickets"))
+                st.session_state.AwayTeam_wickets = _int_or_zero(
+                    results_stats.get("AwayTeam_wickets")
                 )
-                st.session_state.AwayTeam_fours = (
-                    _int_or_zero(results_stats.get("AwayTeam_fours"))
+                st.session_state.AwayTeam_fours = _int_or_zero(
+                    results_stats.get("AwayTeam_fours")
                 )
-                st.session_state.AwayTeam_sixes = (
-                    _int_or_zero(results_stats.get("AwayTeam_sixes"))
+                st.session_state.AwayTeam_sixes = _int_or_zero(
+                    results_stats.get("AwayTeam_sixes")
                 )
-                st.session_state.HomeTeam_fours = (
-                    _int_or_zero(results_stats.get("HomeTeam_fours"))
+                st.session_state.HomeTeam_fours = _int_or_zero(
+                    results_stats.get("HomeTeam_fours")
                 )
-                st.session_state.HomeTeam_sixes = (
-                    _int_or_zero(results_stats.get("HomeTeam_sixes"))
+                st.session_state.HomeTeam_sixes = _int_or_zero(
+                    results_stats.get("HomeTeam_sixes")
                 )
-                st.session_state.HomeTeam_powerplay = (
-                    _int_or_zero(results_stats.get("HomeTeam_powerplay"))
+                st.session_state.HomeTeam_powerplay = _int_or_zero(
+                    results_stats.get("HomeTeam_powerplay")
                 )
-                st.session_state.AwayTeam_powerplay = (
-                    _int_or_zero(results_stats.get("AwayTeam_powerplay"))
+                st.session_state.AwayTeam_powerplay = _int_or_zero(
+                    results_stats.get("AwayTeam_powerplay")
                 )
-                st.session_state.HomeTeam_dotballs = (
-                    _int_or_zero(results_stats.get("HomeTeam_dotballs"))
+                st.session_state.HomeTeam_dotballs = _int_or_zero(
+                    results_stats.get("HomeTeam_dotballs")
                 )
-                st.session_state.AwayTeam_dotballs = (
-                    _int_or_zero(results_stats.get("AwayTeam_dotballs"))
+                st.session_state.AwayTeam_dotballs = _int_or_zero(
+                    results_stats.get("AwayTeam_dotballs")
                 )
-                st.session_state.HomeTeam_highest_over_score = (
-                    _int_or_zero(results_stats.get("HomeTeam_highest_over_score"))
+                st.session_state.HomeTeam_highest_over_score = _int_or_zero(
+                    results_stats.get("HomeTeam_highest_over_score")
                 )
-                st.session_state.AwayTeam_highest_over_score = (
-                    _int_or_zero(results_stats.get("AwayTeam_highest_over_score"))
+                st.session_state.AwayTeam_highest_over_score = _int_or_zero(
+                    results_stats.get("AwayTeam_highest_over_score")
                 )
                 st.session_state.HomeTeam_winner = (
                     results_stats.get("HomeTeam_winner")
