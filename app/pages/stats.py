@@ -2,13 +2,16 @@ import streamlit as st
 import json
 import boto3
 import os
-from jsonpath_ng.ext import parse
 import pandas as pd
 from modules.navigator import Navbar
+from modules.ui import (
+    apply_theme,
+    render_page_header,
+)
 import socket
 import botocore
-from botocore.errorfactory import ClientError
 import datetime as dt
+import html
 from modules.util_app import get_bucket_name, get_match_details_json
 
 BUCKET_NAME = get_bucket_name()
@@ -31,6 +34,94 @@ st.session_state.json_metadata = json.loads(
 st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
+apply_theme("", "")
+render_page_header(
+    "Statistics",
+    "Review published match stats, compare your picks with actual results, and explore score and booster patterns across players.",
+    "Match Intelligence",
+)
+
+st.markdown(
+    """
+    <style>
+    .booster-strip {
+        display: flex;
+        gap: 0.6rem;
+        margin: 0.25rem 0 0.6rem 0;
+        flex-wrap: wrap;
+    }
+    .booster-pill {
+        padding: 0.44rem 0.72rem;
+        border-radius: 999px;
+        border: 1px solid var(--app-border);
+        font-weight: 700;
+        font-size: 0.88rem;
+        color: var(--app-muted);
+        background: var(--app-surface-alt);
+    }
+    .booster-pill.active {
+        color: #ffffff;
+        border-color: transparent;
+        background: linear-gradient(135deg, #ff8f1f 0%, #d9480f 100%);
+    }
+    .stat-compare-card {
+        background: var(--app-surface);
+        border: 1px solid var(--app-border);
+        border-radius: 16px;
+        padding: 0.9rem 1rem;
+        box-shadow: var(--app-shadow);
+    }
+    .stat-compare-card .title {
+        font-weight: 700;
+        margin-bottom: 0.45rem;
+    }
+    .value-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+    .value-chip {
+        border-radius: 10px;
+        padding: 0.45rem 0.55rem;
+        font-size: 0.92rem;
+        border: 1px solid transparent;
+    }
+    .value-chip.good {
+        background: rgba(46, 160, 67, 0.16);
+        color: #1f7a31;
+        border-color: rgba(46, 160, 67, 0.35);
+    }
+    .value-chip.bad {
+        background: rgba(220, 53, 69, 0.14);
+        color: #a81628;
+        border-color: rgba(220, 53, 69, 0.35);
+    }
+    .prediction-card {
+        background: var(--app-surface);
+        border: 1px solid var(--app-border);
+        border-radius: 16px;
+        padding: 0.92rem 1rem;
+        box-shadow: var(--app-shadow);
+        margin-bottom: 0.62rem;
+    }
+    .prediction-card.correct {
+        border-left: 5px solid #2ea043;
+    }
+    .prediction-card.wrong {
+        border-left: 5px solid #dc3545;
+    }
+    .prediction-status.correct {
+        color: #2ea043;
+        font-weight: 700;
+    }
+    .prediction-status.wrong {
+        color: #dc3545;
+        font-weight: 700;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 def login_screen():
@@ -139,28 +230,161 @@ def get_individual_data_from_backend(match_id):
             return False
 
 
+def get_aggregate_transactional_data():
+    s3 = boto3.client("s3")
+    try:
+        data = s3.get_object(Bucket=BUCKET_NAME, Key="aggregates/transactional.txt")
+        return pd.DataFrame(json.loads(data["Body"].read().decode("utf-8")))
+    except botocore.exceptions.ClientError:
+        local_path = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)), "..", "transactional.txt"
+        )
+        try:
+            return pd.read_json(local_path)
+        except ValueError:
+            return pd.DataFrame()
+
+
+def get_selected_match_label():
+    selected_option = st.session_state.get("selected_option")
+    if not selected_option:
+        return None
+    return selected_option.split(" (")[0]
+
+
+def render_stat_cards(df):
+    if df.empty:
+        return
+    columns = st.columns(2)
+    team_a = list(df.columns)[1]
+    team_b = list(df.columns)[2]
+
+    def _as_float(value):
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
+
+    def _winner_classes(home_value, away_value):
+        if home_value == away_value:
+            return "good", "good"
+        return ("good", "bad") if away_value == "Lost" else ("bad", "good")
+
+    def _metric_classes(stat_name, home_value, away_value):
+        if stat_name == "Winner of the game":
+            return _winner_classes(str(home_value), str(away_value))
+
+        home_num = _as_float(home_value)
+        away_num = _as_float(away_value)
+        if home_num is None or away_num is None or home_num == away_num:
+            return "good", "good"
+
+        lower_is_better = stat_name in ["Total Wickets", "Total Dot Balls"]
+        if lower_is_better:
+            return ("good", "bad") if home_num < away_num else ("bad", "good")
+        return ("good", "bad") if home_num > away_num else ("bad", "good")
+
+    for idx, stat_row in df.iterrows():
+        home_class, away_class = _metric_classes(
+            stat_row["Stats"], stat_row.iloc[1], stat_row.iloc[2]
+        )
+        with columns[idx % 2]:
+            st.markdown(
+                f"""
+                <div class="stat-compare-card">
+                    <div class="title">{html.escape(str(stat_row["Stats"]))}</div>
+                    <div class="value-row">
+                        <div class="value-chip {home_class}">{html.escape(str(team_a))}: {html.escape(str(stat_row.iloc[1]))}</div>
+                        <div class="value-chip {away_class}">{html.escape(str(team_b))}: {html.escape(str(stat_row.iloc[2]))}</div>
+                    </div>
+                </div>
+                """,
+                unsafe_allow_html=True,
+            )
+
+
+def render_booster_strip(selected_booster_value):
+    booster_items = [(5, "5x", "🔥🔥🔥🔥🔥"), (3, "3x", "🔥🔥🔥"), (2, "2x", "🔥🔥")]
+    pills = []
+    for value, label, icon in booster_items:
+        css = (
+            "booster-pill active" if selected_booster_value == value else "booster-pill"
+        )
+        pills.append(f'<span class="{css}">{icon} {label}</span>')
+    st.markdown(
+        f'<div class="booster-strip">{"".join(pills)}</div>', unsafe_allow_html=True
+    )
+
+
+def is_prediction_correct(question_text, your_prediction, correct_prediction):
+    question_lookup = {
+        entry.get("questions"): entry.get("q_key")
+        for entry in st.session_state.json_metadata.get("question_list", [])
+    }
+    q_key = question_lookup.get(question_text, "")
+    your_value = "" if pd.isna(your_prediction) else str(your_prediction).strip()
+    correct_value = (
+        "" if pd.isna(correct_prediction) else str(correct_prediction).strip()
+    )
+
+    if q_key in ["totalscore", "highest_over_score"]:
+        return your_value == correct_value
+
+    if correct_value == "Tie" and your_value != "":
+        return True
+    return your_value == correct_value
+
+
+def render_prediction_cards(df_player):
+    for _, prediction_row in df_player.iterrows():
+        correct = is_prediction_correct(
+            prediction_row["Question"],
+            prediction_row["Your Prediction"],
+            prediction_row["Correct Prediction"],
+        )
+        status_class = "correct" if correct else "wrong"
+        status_label = "Correct" if correct else "Wrong"
+        st.markdown(
+            f"""
+            <div class="prediction-card {status_class}">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:0.8rem;">
+                    <div style="font-weight:700;">{html.escape(str(prediction_row["Question"]))}</div>
+                    <div>{html.escape(str(prediction_row["Points"]))} pts</div>
+                </div>
+                <div style="margin-top:0.35rem;color:var(--app-muted);">
+                    Your pick: {html.escape(str(prediction_row["Your Prediction"]))} | Correct: {html.escape(str(prediction_row["Correct Prediction"]))}
+                </div>
+                <div class="prediction-status {status_class}" style="margin-top:0.28rem;">{status_label}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+
 def update_statistics():
+
+    st.session_state.booster_value = 1
 
     if (
         st.session_state.selected_option == "Choose a match"
         or st.session_state.selected_option is None
     ):
         return 0
-    match_number = str(st.session_state.selected_option).split("-")[0].strip()
+    selected_match_number = str(st.session_state.selected_option).split("-")[0].strip()
 
     match_status = {}
-    for matches in st.session_state.json_match:
-        if matches.get("MatchNumber") == int(match_number):
-            match_status = matches
+    for selected_entry in st.session_state.json_match:
+        if selected_entry.get("MatchNumber") == int(selected_match_number):
+            match_status = selected_entry
         else:
             continue
 
-    booster_1, booster_2, booster_3, contents_booster = get_booster_information(
+    _booster_1, _booster_2, _booster_3, contents_booster = get_booster_information(
         match_status, st.session_state.user_name
     )
 
     for booster in contents_booster.keys():
-        if contents_booster.get(booster) == int(match_number):
+        if contents_booster.get(booster) == int(selected_match_number):
             booster_details = (
                 "5x"
                 if booster == "booster_1"
@@ -169,6 +393,8 @@ def update_statistics():
                 else "2x"
             )
             st.session_state.booster_value = int(booster_details.replace("x", ""))
+
+    st.session_state.current_match_status = match_status
 
     if not match_status.get("ResultsPublished"):
         st.session_state.statistics_url = "Not Available"
@@ -293,7 +519,7 @@ def update_statistics():
             if question.get("q_key") in ["totalscore", "highest_over_score"]:
                 correct_score = int(correct_selection)
                 your_score = int(user_selection) if user_selection != "" else 0
-                
+
                 percentage_deviation = round(
                     (
                         (
@@ -335,7 +561,7 @@ def update_statistics():
         st.session_state.df_player = df_player
 
 
-if st.suspend:
+if getattr(st, "suspend", False):
     st.header("Due to Operations Sindoor !! Prediction game is suspended")
 else:
     if socket.gethostname() == "MacBookPro.lan":
@@ -346,32 +572,34 @@ else:
         else:
             st.session_state.current_match_dictionary = {}
 
-        st.subheader("This section contains individual games")
+        st.subheader("Choose a match to unlock analytics")
         match_number_current = st.session_state.current_match_dictionary.get(
             "MatchNumber", 0
         )
         selections = []
-        for matches in st.session_state.json_match:
-            if matches.get("MatchCompletionStatus") == "Completed" or matches.get(
-                "MatchNumber"
-            ) == (match_number_current - 1):
-                match_number = (
-                    str(matches.get("MatchNumber"))
-                    if matches.get("MatchNumber") > 9
-                    else f"0{matches.get('MatchNumber')}"
+        for option_entry in st.session_state.json_match:
+            if option_entry.get(
+                "MatchCompletionStatus"
+            ) == "Completed" or option_entry.get("MatchNumber") == (
+                match_number_current - 1
+            ):
+                display_match_number = (
+                    str(option_entry.get("MatchNumber"))
+                    if option_entry.get("MatchNumber") > 9
+                    else f"0{option_entry.get('MatchNumber')}"
                 )
-                if matches.get("MatchNumber") == (match_number_current - 1):
-                    if matches.get("MatchCompletionStatus") == "Completed":
+                if option_entry.get("MatchNumber") == (match_number_current - 1):
+                    if option_entry.get("MatchCompletionStatus") == "Completed":
                         selections.append(
-                            f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                            f"{display_match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                         )
                     else:
                         selections.append(
-                            f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} (In Progress)"
+                            f"{display_match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} (In Progress)"
                         )
                 else:
                     selections.append(
-                        f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                        f"{display_match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                     )
         selections.sort(reverse=True)
         st.selectbox(
@@ -387,32 +615,19 @@ else:
 
         with st.container():
             st.divider()
-            st.subheader("Statistics of the match")
+            st.subheader("Match Stat Cards")
+            render_booster_strip(st.session_state.booster_value)
             if "statistics_url" in st.session_state:
                 st.markdown(
                     f"Statistics Provided by [espncricinfo]({st.session_state.statistics_url})"
                 )
             if "df" in st.session_state:
-                st.dataframe(
-                    data=st.session_state.df,
-                    on_select="ignore",
-                    hide_index=True,
-                    use_container_width=True,
-                )
+                render_stat_cards(st.session_state.df)
 
             st.divider()
-            if st.session_state.booster_value != 1:
-                st.subheader(
-                    f":red[Booster selected for this game : {st.session_state.booster_value}x]"
-                )
-            st.subheader("Prediction Results for the match")
+            st.subheader("Prediction Results for the Match")
             if "df_player" in st.session_state:
-                st.dataframe(
-                    data=st.session_state.df_player,
-                    on_select="ignore",
-                    hide_index=True,
-                    use_container_width=True,
-                )
+                render_prediction_cards(st.session_state.df_player)
 
         # Render Statistics
 
@@ -430,32 +645,34 @@ else:
             else:
                 st.session_state.current_match_dictionary = {}
 
-            st.subheader("This section contains individual games")
+            st.subheader("Choose a match to unlock analytics")
             match_number_current = st.session_state.current_match_dictionary.get(
                 "MatchNumber", 0
             )
             selections = []
-            for matches in st.session_state.json_match:
-                if matches.get("MatchCompletionStatus") == "Completed" or matches.get(
-                    "MatchNumber"
-                ) == (match_number_current - 1):
-                    match_number = (
-                        str(matches.get("MatchNumber"))
-                        if matches.get("MatchNumber") > 9
-                        else f"0{matches.get('MatchNumber')}"
+            for match_entry in st.session_state.json_match:
+                if match_entry.get(
+                    "MatchCompletionStatus"
+                ) == "Completed" or match_entry.get("MatchNumber") == (
+                    match_number_current - 1
+                ):
+                    display_match_number = (
+                        str(match_entry.get("MatchNumber"))
+                        if match_entry.get("MatchNumber") > 9
+                        else f"0{match_entry.get('MatchNumber')}"
                     )
-                    if matches.get("MatchNumber") == (match_number_current - 1):
-                        if matches.get("MatchCompletionStatus") == "Completed":
+                    if match_entry.get("MatchNumber") == (match_number_current - 1):
+                        if match_entry.get("MatchCompletionStatus") == "Completed":
                             selections.append(
-                                f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                                f"{display_match_number} - {match_entry.get('HomeTeam')} vs {match_entry.get('AwayTeam')} ({match_entry.get('MatchCompletionStatus')})"
                             )
                         else:
                             selections.append(
-                                f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} (In Progress)"
+                                f"{display_match_number} - {match_entry.get('HomeTeam')} vs {match_entry.get('AwayTeam')} (In Progress)"
                             )
                     else:
                         selections.append(
-                            f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                            f"{display_match_number} - {match_entry.get('HomeTeam')} vs {match_entry.get('AwayTeam')} ({match_entry.get('MatchCompletionStatus')})"
                         )
             selections.sort(reverse=True)
             st.selectbox(
@@ -471,30 +688,17 @@ else:
 
             with st.container():
                 st.divider()
-                st.subheader("Statistics of the match")
+                st.subheader("Match Stat Cards")
+                render_booster_strip(st.session_state.booster_value)
                 if "statistics_url" in st.session_state:
                     st.markdown(
                         f"Statistics Provided by [link]({st.session_state.statistics_url})"
                     )
                 if "df" in st.session_state:
-                    st.dataframe(
-                        data=st.session_state.df,
-                        on_select="ignore",
-                        hide_index=True,
-                        use_container_width=True,
-                    )
+                    render_stat_cards(st.session_state.df)
 
                 st.divider()
-                if st.session_state.booster_value != 1:
-                    st.subheader(
-                        f":red[Booster selected for this game : {st.session_state.booster_value}x]"
-                    )
-                st.subheader("Prediction Results for the match")
+                st.subheader("Prediction Results for the Match")
                 if "df_player" in st.session_state:
-                    st.dataframe(
-                        data=st.session_state.df_player,
-                        on_select="ignore",
-                        hide_index=True,
-                        use_container_width=True,
-                    )
+                    render_prediction_cards(st.session_state.df_player)
             st.button("Log out", on_click=st.logout)

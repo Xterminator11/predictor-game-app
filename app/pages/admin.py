@@ -1,11 +1,10 @@
 import streamlit as st
 import json
-import boto3
 import os
 import pandas as pd
 from modules.navigator import Navbar
+from modules.ui import apply_theme, render_info_card, render_page_header
 import socket
-import botocore
 import datetime as dt
 
 from modules.util_app import (
@@ -13,8 +12,6 @@ from modules.util_app import (
     get_match_details_json,
     put_match_details_json,
 )
-
-from modules.run_aggregate_cycle import main as run_aggregate_cycle
 
 BUCKET_NAME = get_bucket_name()
 
@@ -34,6 +31,12 @@ st.session_state.json_metadata = json.loads(
 st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
 
 Navbar()
+apply_theme("", "")
+render_page_header(
+    "Admin Control Center",
+    "Manage match results, publish official stats, and keep the scoring engine synchronized without changing the admin workflow.",
+    "Admin Operations",
+)
 
 
 def refresh_match_details():
@@ -103,10 +106,10 @@ def store_match_details():
     )
 
     print(f"Current match number selected: {st.session_state.match_number_selected}")
-    for matches in st.session_state.json_match:
-        print(f"Current match number in loop: {matches.get('MatchNumber')}")
-        if matches.get("MatchNumber") == st.session_state.match_number_selected:
-            matches["PredictionResults"] = {
+    for result_entry in st.session_state.json_match:
+        print(f"Current match number in loop: {result_entry.get('MatchNumber')}")
+        if result_entry.get("MatchNumber") == st.session_state.match_number_selected:
+            result_entry["PredictionResults"] = {
                 "winner": update_results("winner"),
                 "fours": update_results("fours"),
                 "sixes": update_results("sixes"),
@@ -116,7 +119,7 @@ def store_match_details():
                 "totalscore": str(update_results("totalscore")),
                 "highest_over_score": str(update_results("highest_over_score")),
             }
-            matches["ResultsStats"] = {
+            result_entry["ResultsStats"] = {
                 "HomeTeam_totalscore": str(st.session_state.HomeTeam_totalscore),
                 "HomeTeam_wickets": str(st.session_state.HomeTeam_wickets),
                 "AwayTeam_totalscore": str(st.session_state.AwayTeam_totalscore),
@@ -139,12 +142,12 @@ def store_match_details():
                 "AwayTeam_winner": str(st.session_state.AwayTeam_winner),
                 "StatsLink": str(st.session_state.StatsLink),
             }
-            matches["MatchCompletionStatus"] = "Completed"
-            matches["ResultsPublished"] = True
+            result_entry["MatchCompletionStatus"] = "Completed"
+            result_entry["ResultsPublished"] = True
 
-            match_details.append(matches)
+            match_details.append(result_entry)
         else:
-            match_details.append(matches)
+            match_details.append(result_entry)
 
     put_match_details_json(match_details)
     st.session_state.json_match = json.loads(get_match_details_json(data_type="json"))
@@ -187,9 +190,12 @@ def update_match_label():
         print(f"Selected Match Number: {st.session_state.match_number_selected}")
         # Update Values
 
-        for matches in st.session_state.json_match:
-            if matches.get("MatchNumber") == st.session_state.match_number_selected:
-                results_stats = matches.get("ResultsStats", {})
+        for result_entry in st.session_state.json_match:
+            if (
+                result_entry.get("MatchNumber")
+                == st.session_state.match_number_selected
+            ):
+                results_stats = result_entry.get("ResultsStats", {})
                 st.session_state["HomeTeam_totalscore"] = _int_or_zero(
                     results_stats.get("HomeTeam_totalscore")
                 )
@@ -281,6 +287,10 @@ def cleanup_previous_instance():
 def create_input_form_match_details():
     # Do not clear values here. `update_match_label` populates session_state
     # when a match is selected, and clearing at render time wipes those values.
+    render_info_card(
+        "Admin Input",
+        "Update the official match results carefully. Submitting this data changes published stats and downstream scoring.",
+    )
     home_team, away_team = st.columns(2, gap="medium")
     st.text_input(label="StatsLink", key="StatsLink")
     st.button(label="Submit", on_click=store_match_details)
@@ -424,7 +434,11 @@ def get_next_match_from_json() -> list:
 
 if socket.gethostname() == "Gururajs-MacBook-Pro.local":
     st.session_state.user_name = "Gururaj Rao"
-    st.subheader("Admin Page")
+    render_page_header(
+        "Admin Page",
+        "Select a match, update the official result fields, and publish the statistics used by the prediction engine.",
+        "Restricted Access",
+    )
     st.session_state.next_matches = json.loads(get_next_match_from_json())
     if len(st.session_state.next_matches) != 0:
         st.session_state.current_match_dictionary = st.session_state.next_matches[0]
@@ -442,51 +456,51 @@ if socket.gethostname() == "Gururajs-MacBook-Pro.local":
         with st.container():
             st.subheader("Select team and update stats")
             selections = []
-            for matches in st.session_state.json_match:
-                if matches.get("MatchCompletionStatus") == "Completed" or (
-                    matches.get("MatchNumber")
+            for option_entry in st.session_state.json_match:
+                if option_entry.get("MatchCompletionStatus") == "Completed" or (
+                    option_entry.get("MatchNumber")
                     == (
                         st.session_state.current_match_dictionary.get("MatchNumber") - 1
                     )
-                    or matches.get("MatchNumber")
+                    or option_entry.get("MatchNumber")
                     == (
                         st.session_state.current_match_dictionary.get("MatchNumber") - 2
                     )
-                    or matches.get("MatchNumber")
+                    or option_entry.get("MatchNumber")
                     == (st.session_state.current_match_dictionary.get("MatchNumber"))
                 ):
                     match_number = (
-                        str(matches.get("MatchNumber"))
-                        if matches.get("MatchNumber") > 9
-                        else f"0{matches.get('MatchNumber')}"
+                        str(option_entry.get("MatchNumber"))
+                        if option_entry.get("MatchNumber") > 9
+                        else f"0{option_entry.get('MatchNumber')}"
                     )
                     if (
-                        matches.get("MatchNumber")
+                        option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                             - 1
                         )
-                        or matches.get("MatchNumber")
+                        or option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                             - 2
                         )
-                        or matches.get("MatchNumber")
+                        or option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                         )
                     ):
-                        if matches.get("MatchCompletionStatus") == "Completed":
+                        if option_entry.get("MatchCompletionStatus") == "Completed":
                             selections.append(
-                                f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                                f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                             )
                         else:
                             selections.append(
-                                f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} (In Progress)"
+                                f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} (In Progress)"
                             )
                     else:
                         selections.append(
-                            f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                            f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                         )
             selections.sort(reverse=True)
             # create_input_form_match_details()
@@ -510,7 +524,11 @@ else:
         login_screen()
     else:
         st.session_state.user_name = st.user.name
-        st.subheader("Admin Page")
+        render_page_header(
+            "Admin Page",
+            "Select a match, update the official result fields, and publish the statistics used by the prediction engine.",
+            "Restricted Access",
+        )
         st.session_state.next_matches = json.loads(get_next_match_from_json())
         if len(st.session_state.next_matches) != 0:
             st.session_state.current_match_dictionary = st.session_state.next_matches[0]
@@ -528,61 +546,61 @@ else:
             with st.container():
                 st.subheader("Select team and update stats")
                 selections = []
-                for matches in st.session_state.json_match:
-                    if matches.get("MatchCompletionStatus") == "Completed" or (
-                        matches.get("MatchNumber")
+                for option_entry in st.session_state.json_match:
+                    if option_entry.get("MatchCompletionStatus") == "Completed" or (
+                        option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                             - 1
                         )
-                        or matches.get("MatchNumber")
+                        or option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                             - 2
                         )
-                        or matches.get("MatchNumber")
+                        or option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
                         )
                     ):
                         match_number = (
-                            str(matches.get("MatchNumber"))
-                            if matches.get("MatchNumber") > 9
-                            else f"0{matches.get('MatchNumber')}"
+                            str(option_entry.get("MatchNumber"))
+                            if option_entry.get("MatchNumber") > 9
+                            else f"0{option_entry.get('MatchNumber')}"
                         )
                         if (
-                            matches.get("MatchNumber")
+                            option_entry.get("MatchNumber")
                             == (
                                 st.session_state.current_match_dictionary.get(
                                     "MatchNumber"
                                 )
                                 - 1
                             )
-                            or matches.get("MatchNumber")
+                            or option_entry.get("MatchNumber")
                             == (
                                 st.session_state.current_match_dictionary.get(
                                     "MatchNumber"
                                 )
                                 - 2
                             )
-                            or matches.get("MatchNumber")
+                            or option_entry.get("MatchNumber")
                             == (
                                 st.session_state.current_match_dictionary.get(
                                     "MatchNumber"
                                 )
                             )
                         ):
-                            if matches.get("MatchCompletionStatus") == "Completed":
+                            if option_entry.get("MatchCompletionStatus") == "Completed":
                                 selections.append(
-                                    f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                                    f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                                 )
                             else:
                                 selections.append(
-                                    f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} (In Progress)"
+                                    f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} (In Progress)"
                                 )
                         else:
                             selections.append(
-                                f"{match_number} - {matches.get('HomeTeam')} vs {matches.get('AwayTeam')} ({matches.get('MatchCompletionStatus')})"
+                                f"{match_number} - {option_entry.get('HomeTeam')} vs {option_entry.get('AwayTeam')} ({option_entry.get('MatchCompletionStatus')})"
                             )
                 selections.sort(reverse=True)
                 st.selectbox(
