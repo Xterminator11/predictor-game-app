@@ -102,22 +102,42 @@ metric_3.metric("Total Boosters In Tournament", total_boosters)
 st.divider()
 
 st.header("1. How to Navigate the App")
+st.markdown(
+    """
+    <style>
+    .nav-equal-card .app-card {
+        min-height: 196px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 nav_left, nav_middle, nav_right = st.columns(3)
 with nav_left:
+    st.markdown('<div class="nav-equal-card">', unsafe_allow_html=True)
     render_info_card(
         "Predictor Home Page",
         "Review the next match, choose a booster, answer all questions, and submit predictions before the match locks.",
     )
+    st.markdown("</div>", unsafe_allow_html=True)
 with nav_middle:
+    st.markdown('<div class="nav-equal-card">', unsafe_allow_html=True)
     render_info_card(
         "Statistics and Leader Board",
         "Statistics shows your prediction breakdown. Leader Board tracks total scores, rank movement, and player comparisons.",
     )
+    st.markdown("</div>", unsafe_allow_html=True)
 with nav_right:
+    st.markdown('<div class="nav-equal-card">', unsafe_allow_html=True)
     render_info_card(
         "Help and Admin",
         "Help explains the rules. Admin is reserved for authorized result and aggregation updates.",
     )
+    st.markdown("</div>", unsafe_allow_html=True)
 
 st.info(
     "Use the left sidebar as your primary navigation. The normal player flow is Home Page, then Statistics, then Leader Board."
