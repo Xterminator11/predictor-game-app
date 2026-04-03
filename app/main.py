@@ -356,8 +356,47 @@ def body_rendering():
         ## Add headers
 
         match_details = json.loads(st.session_state.next_matches)[0]
+        match_date = pd.to_datetime(match_details.get("DateUtc"), errors="coerce")
+        date_display = (
+            match_date.strftime("%d %b %Y, %I:%M %p UTC")
+            if pd.notna(match_date)
+            else str(match_details.get("DateUtc", "TBD"))
+        )
         left, middle, right = st.columns(
             [1.2, 1, 1.2], border=True, vertical_alignment="center"
+        )
+
+        st.markdown(
+            """
+            <style>
+            .match-details-card {
+                border: 1px solid var(--app-border);
+                border-radius: 16px;
+                background: var(--app-surface);
+                box-shadow: var(--app-shadow);
+                padding: 0.95rem 0.9rem;
+                text-align: center;
+            }
+            .match-details-label {
+                color: var(--app-muted);
+                font-size: 0.82rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                margin-bottom: 0.15rem;
+            }
+            .match-details-value {
+                font-family: "Space Grotesk", sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                margin-bottom: 0.58rem;
+                color: var(--app-text);
+            }
+            .match-details-value:last-child {
+                margin-bottom: 0;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
         )
 
         left.image(
@@ -374,9 +413,19 @@ def body_rendering():
         )
         right.markdown(f"### {match_details.get('AwayTeam')}")
 
-        middle.metric("Match", match_details.get("MatchNumber"))
-        middle.markdown(f"**Date**: {match_details.get('DateUtc')}")
-        middle.markdown(f"**Venue**: {match_details.get('Location')}")
+        middle.markdown(
+            f"""
+            <div class="match-details-card">
+                <div class="match-details-label">Match Number</div>
+                <div class="match-details-value">{match_details.get("MatchNumber")}</div>
+                <div class="match-details-label">Date</div>
+                <div class="match-details-value">{date_display}</div>
+                <div class="match-details-label">Venue</div>
+                <div class="match-details-value">{match_details.get("Location")}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
         # middle.image(
         #     "https://www.creativefabrica.com/wp-content/uploads/2021/11/09/Versus-Vs-Vector-Transparent-Background-Graphics-19913250-2-580x386.png"
         # )
