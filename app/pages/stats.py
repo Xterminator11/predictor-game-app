@@ -107,11 +107,18 @@ st.markdown(
     .prediction-card.correct {
         border-left: 5px solid #2ea043;
     }
+    .prediction-card.partial {
+        border-left: 5px solid #d29922;
+    }
     .prediction-card.wrong {
         border-left: 5px solid #dc3545;
     }
     .prediction-status.correct {
         color: #2ea043;
+        font-weight: 700;
+    }
+    .prediction-status.partial {
+        color: #9a6700;
         font-weight: 700;
     }
     .prediction-status.wrong {
@@ -316,34 +323,58 @@ def render_booster_strip(selected_booster_value):
     )
 
 
-def is_prediction_correct(question_text, your_prediction, correct_prediction):
+def get_prediction_status(question_text, your_prediction, correct_prediction):
     question_lookup = {
-        entry.get("questions"): entry.get("q_key")
+        entry.get("questions"): {
+            "q_key": entry.get("q_key"),
+            "points": float(entry.get("points", 0)),
+        }
         for entry in st.session_state.json_metadata.get("question_list", [])
     }
-    q_key = question_lookup.get(question_text, "")
+    question_meta = question_lookup.get(question_text, {})
+    q_key = question_meta.get("q_key", "")
+    base_points = question_meta.get("points", 0)
     your_value = "" if pd.isna(your_prediction) else str(your_prediction).strip()
     correct_value = (
         "" if pd.isna(correct_prediction) else str(correct_prediction).strip()
     )
 
     if q_key in ["totalscore", "highest_over_score"]:
-        return your_value == correct_value
+        try:
+            your_score = float(your_value)
+            correct_score = float(correct_value)
+            if correct_score == 0:
+                return (
+                    ("correct", "Accurate")
+                    if your_score == correct_score
+                    else ("wrong", "Not Accurate")
+                )
+
+            closeness_ratio = max(
+                0.0, 1 - (abs(correct_score - your_score) / abs(correct_score))
+            )
+            if (closeness_ratio * base_points) >= (0.8 * base_points):
+                return "correct", "Accurate"
+            if (closeness_ratio * base_points) >= (0.5 * base_points):
+                return "partial", "Moderately Accurate"
+            return "wrong", "Not Accurate"
+        except (TypeError, ValueError):
+            return "wrong", "Not Accurate"
 
     if correct_value == "Tie" and your_value != "":
-        return True
-    return your_value == correct_value
+        return "correct", "Correct"
+    if your_value == correct_value:
+        return "correct", "Correct"
+    return "wrong", "Wrong"
 
 
 def render_prediction_cards(df_player):
     for _, prediction_row in df_player.iterrows():
-        correct = is_prediction_correct(
+        status_class, status_label = get_prediction_status(
             prediction_row["Question"],
             prediction_row["Your Prediction"],
             prediction_row["Correct Prediction"],
         )
-        status_class = "correct" if correct else "wrong"
-        status_label = "Correct" if correct else "Wrong"
         st.markdown(
             f"""
             <div class="prediction-card {status_class}">
