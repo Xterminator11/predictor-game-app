@@ -110,6 +110,10 @@ st.markdown(
     .prediction-card.partial {
         border-left: 5px solid #d29922;
     }
+    .prediction-card.unavailable {
+        border-left: 5px solid #98a2b3;
+        background: linear-gradient(180deg, rgba(152, 162, 179, 0.07) 0%, var(--app-surface) 100%);
+    }
     .prediction-card.wrong {
         border-left: 5px solid #dc3545;
     }
@@ -119,6 +123,10 @@ st.markdown(
     }
     .prediction-status.partial {
         color: #9a6700;
+        font-weight: 700;
+    }
+    .prediction-status.unavailable {
+        color: #667085;
         font-weight: 700;
     }
     .prediction-status.wrong {
@@ -334,10 +342,19 @@ def get_prediction_status(question_text, your_prediction, correct_prediction):
     question_meta = question_lookup.get(question_text, {})
     q_key = question_meta.get("q_key", "")
     base_points = question_meta.get("points", 0)
+    results_published = st.session_state.get("current_match_status", {}).get(
+        "ResultsPublished", False
+    )
     your_value = "" if pd.isna(your_prediction) else str(your_prediction).strip()
     correct_value = (
         "" if pd.isna(correct_prediction) else str(correct_prediction).strip()
     )
+
+    if not results_published and q_key in ["totalscore", "highest_over_score"]:
+        return "unavailable", "Not Available"
+
+    if correct_value in ["", "NOT_PUBLISHED", "Not Available"]:
+        return "unavailable", "Not Available"
 
     if q_key in ["totalscore", "highest_over_score"]:
         try:
@@ -369,12 +386,26 @@ def get_prediction_status(question_text, your_prediction, correct_prediction):
 
 
 def render_prediction_cards(df_player):
+    question_lookup = {
+        entry.get("questions"): entry.get("q_key")
+        for entry in st.session_state.json_metadata.get("question_list", [])
+    }
+    results_published = st.session_state.get("current_match_status", {}).get(
+        "ResultsPublished", False
+    )
     for _, prediction_row in df_player.iterrows():
         status_class, status_label = get_prediction_status(
             prediction_row["Question"],
             prediction_row["Your Prediction"],
             prediction_row["Correct Prediction"],
         )
+        q_key = question_lookup.get(prediction_row["Question"], "")
+        correct_prediction_display = str(prediction_row["Correct Prediction"])
+        if (
+            correct_prediction_display in ["NOT_PUBLISHED", "", "nan"]
+            or (not results_published and q_key in ["totalscore", "highest_over_score"])
+        ):
+            correct_prediction_display = "Not Available"
         st.markdown(
             f"""
             <div class="prediction-card {status_class}">
@@ -383,7 +414,7 @@ def render_prediction_cards(df_player):
                     <div>{html.escape(str(prediction_row["Points"]))} pts</div>
                 </div>
                 <div style="margin-top:0.35rem;color:var(--app-muted);">
-                    Your pick: {html.escape(str(prediction_row["Your Prediction"]))} | Correct: {html.escape(str(prediction_row["Correct Prediction"]))}
+                    Your pick: {html.escape(str(prediction_row["Your Prediction"]))} | Correct: {html.escape(correct_prediction_display)}
                 </div>
                 <div class="prediction-status {status_class}" style="margin-top:0.28rem;">{status_label}</div>
             </div>
