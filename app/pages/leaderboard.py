@@ -41,6 +41,40 @@ render_page_header(
     "Tournament Race",
 )
 
+st.markdown(
+    """
+    <style>
+    .leaderboard-highlight-card {
+        background: var(--app-surface);
+        border: 1px solid var(--app-border);
+        border-radius: 18px;
+        box-shadow: var(--app-shadow);
+        padding: 0.78rem 0.95rem;
+        min-height: 100%;
+    }
+    .leaderboard-highlight-label {
+        color: var(--app-muted);
+        font-size: 0.88rem;
+        margin-bottom: 0.4rem;
+    }
+    .leaderboard-highlight-value {
+        color: var(--app-text);
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    .leaderboard-highlight-player {
+        color: #2ea043;
+        font-size: 0.92rem;
+        font-weight: 700;
+        margin-top: 0.45rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 
 def login_screen():
     st.header("Welcome to Predictor App for IPL 2025")
@@ -133,6 +167,20 @@ def format_booster_display(booster_indicator):
     return booster_map.get(indicator, "No booster")
 
 
+def render_summary_card(column, label, value, caption=""):
+    caption_content = caption if caption else "&nbsp;"
+    column.markdown(
+        f"""
+        <div class="leaderboard-highlight-card">
+            <div class="leaderboard-highlight-label">{label}</div>
+            <div class="leaderboard-highlight-value">{value}</div>
+            <div class="leaderboard-highlight-player">{caption_content}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def render_top_three(df_leaderboard):
     ordered = df_leaderboard.sort_values(
         by="AggregatePoints", ascending=False
@@ -200,14 +248,22 @@ def render_leaderboard_view():
     insight_left, insight_middle, insight_right = st.columns(3)
     if "df_all" in st.session_state and not st.session_state.df_all.empty:
         df_all = st.session_state.df_all.copy()
-        insight_left.metric("Matches Tracked", df_all["MatchNumber"].nunique())
-        insight_middle.metric(
-            "Total Boosters Used",
-            int((df_all["BoosterIndicator"].fillna("") != "").sum()),
+        top_single_match = df_all.loc[df_all["AggregatePoints"].idxmax()]
+        render_summary_card(
+            insight_left,
+            "Matches Tracked",
+            str(df_all["MatchNumber"].nunique()),
         )
-        insight_right.metric(
+        render_summary_card(
+            insight_middle,
+            "Total Boosters Used",
+            str(int((df_all["BoosterIndicator"].fillna("") != "").sum())),
+        )
+        render_summary_card(
+            insight_right,
             "Highest Single Match",
-            format_score(df_all["AggregatePoints"].max()),
+            format_score(top_single_match["AggregatePoints"]),
+            f"Player: {top_single_match['UserName']}",
         )
 
     st.divider()
