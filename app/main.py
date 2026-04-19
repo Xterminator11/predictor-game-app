@@ -358,7 +358,7 @@ def _average(values: list[int]):
     return round(sum(values) / len(values), 1) if values else None
 
 
-def get_recent_team_insights(match_details: dict, games_limit: int = 6) -> dict:
+def get_recent_team_insights(match_details: dict, games_limit: int = 5) -> dict:
     match_details_json = get_match_details_json(data_type="json")
     data_frame = pd.read_json(
         match_details_json,
@@ -466,7 +466,7 @@ def get_recent_team_insights(match_details: dict, games_limit: int = 6) -> dict:
             if highest_over_score_value is not None:
                 highest_over_score.append((highest_over_score_value, opp_highest))
             if wickets_value is not None:
-                wickets.append((wickets_value, opp_wickets))
+                wickets.append((opp_wickets, prefix_wickets))
 
         def _vals(pairs):
             return [p[0] for p in pairs]
@@ -549,16 +549,16 @@ def _render_result_chips(results: list[str]):
 
 def _render_stat_label(q_key: str):
     labels = {
-        "winner": "Last 6 Results",
-        "fours": "Fours (Last 6)",
-        "sixes": "Sixes (Last 6)",
-        "wickets": "Wickets Lost (Last 6)",
-        "powerplay": "Powerplay Runs (Last 6)",
-        "dotballs": "Dot Balls (Last 6)",
-        "highest_over_score": "Best Over (Last 6)",
-        "totalscore": "Total Runs (Last 6)",
+        "winner": "Last 5 Results",
+        "fours": "Fours (Last 5)",
+        "sixes": "Sixes (Last 5)",
+        "wickets": "Wickets Taken (Last 5)",
+        "powerplay": "Powerplay Runs (Last 5)",
+        "dotballs": "Dot Balls (Last 5)",
+        "highest_over_score": "Best Over (Last 5)",
+        "totalscore": "Total Runs (Last 5)",
     }
-    return labels.get(q_key, "Last 6")
+    return labels.get(q_key, "Last 5")
 
 
 def get_question_insight_html(
