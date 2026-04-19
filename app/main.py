@@ -466,7 +466,7 @@ def get_recent_team_insights(match_details: dict, games_limit: int = 5) -> dict:
             if highest_over_score_value is not None:
                 highest_over_score.append((highest_over_score_value, opp_highest))
             if wickets_value is not None:
-                wickets.append((opp_wickets, prefix_wickets))
+                wickets.append((opp_wickets, wickets_value))
 
         def _vals(pairs):
             return [p[0] for p in pairs]
