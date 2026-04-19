@@ -160,7 +160,7 @@ def apply_theme(page_title: str, page_caption: str = ""):
         button[kind="primary"], .stButton > button {{
             border-radius: 999px;
             border: 1px solid transparent;
-            background: linear-gradient(135deg, var(--app-accent) 0%, var(--app-accent-alt) 100%);
+            background: var(--app-accent);
             color: white;
             font-weight: 700;
         }}
