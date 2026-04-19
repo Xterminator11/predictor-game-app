@@ -1165,13 +1165,15 @@ def show_match_cards():
         status = "Locked" if locked else "Unlocked"
         status_class = "locked" if locked else "unlocked"
         match_date = pd.to_datetime(match["DateUtc"], errors="coerce")
-        date_label = (
-            match_date.tz_localize("UTC")
-            .tz_convert("US/Central")
-            .strftime("%a, %d %b · %I:%M %p %Z")
-            if pd.notna(match_date)
-            else str(match["DateUtc"])
-        )
+        if pd.notna(match_date):
+            # Ensure the datetime is timezone-aware UTC
+            if match_date.tz is None:
+                match_date = match_date.tz_localize("UTC")
+            # Convert to US/Central timezone
+            central_time = match_date.tz_convert("US/Central")
+            date_label = central_time.strftime("%a, %d %b · %I:%M %p %Z")
+        else:
+            date_label = str(match["DateUtc"])
         match_id = match["MatchNumber"]
 
         st.markdown(
