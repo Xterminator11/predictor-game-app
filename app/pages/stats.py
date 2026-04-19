@@ -401,9 +401,8 @@ def render_prediction_cards(df_player):
         )
         q_key = question_lookup.get(prediction_row["Question"], "")
         correct_prediction_display = str(prediction_row["Correct Prediction"])
-        if (
-            correct_prediction_display in ["NOT_PUBLISHED", "", "nan"]
-            or (not results_published and q_key in ["totalscore", "highest_over_score"])
+        if correct_prediction_display in ["NOT_PUBLISHED", "", "nan"] or (
+            not results_published and q_key in ["totalscore", "highest_over_score"]
         ):
             correct_prediction_display = "Not Available"
         st.markdown(

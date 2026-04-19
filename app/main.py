@@ -3,6 +3,7 @@ import os
 import socket
 import datetime as dt
 import boto3
+from typing import Any
 from datetime import datetime
 import streamlit as st
 import pandas as pd
@@ -346,6 +347,277 @@ def get_next_match_from_json() -> list:
     )
 
 
+def _safe_int(value: Any):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _average(values: list[int]):
+    return round(sum(values) / len(values), 1) if values else None
+
+
+def get_recent_team_insights(match_details: dict, games_limit: int = 6) -> dict:
+    match_details_json = get_match_details_json(data_type="json")
+    data_frame = pd.read_json(
+        match_details_json,
+        orient="records",
+        convert_dates=["DateUtc"],
+    )
+
+    if data_frame.empty:
+        return {}
+
+    data_frame["DateUtc"] = pd.to_datetime(
+        data_frame["DateUtc"], errors="coerce", utc=True
+    )
+    current_match_time = pd.to_datetime(
+        match_details.get("DateUtc"), errors="coerce", utc=True
+    )
+
+    if pd.isna(current_match_time):
+        current_match_time = pd.Timestamp.now(tz=dt.timezone.utc)
+
+    completed_matches = data_frame[
+        (data_frame["ResultsPublished"].fillna(False))
+        & (data_frame["MatchCompletionStatus"] == "Completed")
+        & (data_frame["DateUtc"] < current_match_time)
+    ]
+
+    home_team = match_details.get("HomeTeam")
+    away_team = match_details.get("AwayTeam")
+
+    def build_team_summary(team_name: str):
+        team_matches = completed_matches[
+            (completed_matches["HomeTeam"] == team_name)
+            | (completed_matches["AwayTeam"] == team_name)
+        ].sort_values("DateUtc", ascending=False)
+
+        if team_matches.empty:
+            return {
+                "count": 0,
+                "results": [],
+                "totalscore": [],
+                "fours": [],
+                "sixes": [],
+                "powerplay": [],
+                "dotballs": [],
+                "highest_over_score": [],
+                "wickets": [],
+                "avg": {},
+            }
+
+        team_matches = team_matches.head(games_limit).iloc[::-1]
+
+        results = []
+        totalscore = []
+        fours = []
+        sixes = []
+        powerplay = []
+        dotballs = []
+        highest_over_score = []
+        wickets = []
+
+        for _, row in team_matches.iterrows():
+            stats = row.get("ResultsStats")
+            if not isinstance(stats, dict):
+                continue
+
+            prefix = "HomeTeam" if row.get("HomeTeam") == team_name else "AwayTeam"
+            opp_prefix = "AwayTeam" if prefix == "HomeTeam" else "HomeTeam"
+
+            winner_value = str(stats.get(f"{prefix}_winner", "")).lower()
+            if winner_value == "won":
+                results.append("W")
+            elif winner_value == "lost":
+                results.append("L")
+            else:
+                results.append("N")
+
+            totalscore_value = _safe_int(stats.get(f"{prefix}_totalscore"))
+            fours_value = _safe_int(stats.get(f"{prefix}_fours"))
+            sixes_value = _safe_int(stats.get(f"{prefix}_sixes"))
+            powerplay_value = _safe_int(stats.get(f"{prefix}_powerplay"))
+            dotballs_value = _safe_int(stats.get(f"{prefix}_dotballs"))
+            highest_over_score_value = _safe_int(
+                stats.get(f"{prefix}_highest_over_score")
+            )
+            wickets_value = _safe_int(stats.get(f"{prefix}_wickets"))
+
+            opp_totalscore = _safe_int(stats.get(f"{opp_prefix}_totalscore"))
+            opp_fours = _safe_int(stats.get(f"{opp_prefix}_fours"))
+            opp_sixes = _safe_int(stats.get(f"{opp_prefix}_sixes"))
+            opp_powerplay = _safe_int(stats.get(f"{opp_prefix}_powerplay"))
+            opp_dotballs = _safe_int(stats.get(f"{opp_prefix}_dotballs"))
+            opp_highest = _safe_int(stats.get(f"{opp_prefix}_highest_over_score"))
+            opp_wickets = _safe_int(stats.get(f"{opp_prefix}_wickets"))
+
+            if totalscore_value is not None:
+                totalscore.append((totalscore_value, opp_totalscore))
+            if fours_value is not None:
+                fours.append((fours_value, opp_fours))
+            if sixes_value is not None:
+                sixes.append((sixes_value, opp_sixes))
+            if powerplay_value is not None:
+                powerplay.append((powerplay_value, opp_powerplay))
+            if dotballs_value is not None:
+                dotballs.append((dotballs_value, opp_dotballs))
+            if highest_over_score_value is not None:
+                highest_over_score.append((highest_over_score_value, opp_highest))
+            if wickets_value is not None:
+                wickets.append((wickets_value, opp_wickets))
+
+        def _vals(pairs):
+            return [p[0] for p in pairs]
+
+        return {
+            "count": len(team_matches),
+            "results": results,
+            "totalscore": totalscore,
+            "fours": fours,
+            "sixes": sixes,
+            "powerplay": powerplay,
+            "dotballs": dotballs,
+            "highest_over_score": highest_over_score,
+            "wickets": wickets,
+            "avg": {
+                "totalscore": _average(_vals(totalscore)),
+                "fours": _average(_vals(fours)),
+                "sixes": _average(_vals(sixes)),
+                "powerplay": _average(_vals(powerplay)),
+                "dotballs": _average(_vals(dotballs)),
+                "highest_over_score": _average(_vals(highest_over_score)),
+                "wickets": _average(_vals(wickets)),
+            },
+        }
+
+    return {
+        "home_team": home_team,
+        "away_team": away_team,
+        "home": build_team_summary(home_team),
+        "away": build_team_summary(away_team),
+    }
+
+
+def _values_to_text(values: list[int]):
+    return " | ".join(str(value) for value in values) if values else "N/A"
+
+
+def _render_stat_chips(pairs: list[tuple], higher_is_better: bool = True):
+    if not pairs:
+        return '<span class="stat-chip">N/A</span>'
+    chips = []
+    for pair in pairs:
+        if isinstance(pair, tuple) and len(pair) == 2:
+            val, opp = pair
+            if opp is None:
+                css = "stat-chip"
+            elif val > opp:
+                css = "stat-chip-win" if higher_is_better else "stat-chip-loss"
+            elif val < opp:
+                css = "stat-chip-loss" if higher_is_better else "stat-chip-win"
+            else:
+                css = "stat-chip-tie"
+        else:
+            val = pair
+            css = "stat-chip"
+        chips.append(f'<span class="stat-chip {css}">{val}</span>')
+    return "".join(chips)
+
+
+def _format_average(value: float | None):
+    return f"{value:.1f}" if value is not None else "N/A"
+
+
+def _render_result_chips(results: list[str]):
+    if not results:
+        return '<span class="result-chip result-chip-neutral">N/A</span>'
+
+    chip_html = []
+    for result in results:
+        css_class = (
+            "result-chip-win"
+            if result == "W"
+            else "result-chip-loss"
+            if result == "L"
+            else "result-chip-neutral"
+        )
+        chip_html.append(f'<span class="result-chip {css_class}">{result}</span>')
+    return "".join(chip_html)
+
+
+def _render_stat_label(q_key: str):
+    labels = {
+        "winner": "Last 6 Results",
+        "fours": "Fours (Last 6)",
+        "sixes": "Sixes (Last 6)",
+        "wickets": "Wickets Lost (Last 6)",
+        "powerplay": "Powerplay Runs (Last 6)",
+        "dotballs": "Dot Balls (Last 6)",
+        "highest_over_score": "Best Over (Last 6)",
+        "totalscore": "Total Runs (Last 6)",
+    }
+    return labels.get(q_key, "Last 6")
+
+
+def get_question_insight_html(
+    q_key: str,
+    home_team: str,
+    away_team: str,
+    home: dict,
+    away: dict,
+):
+    label = _render_stat_label(q_key)
+
+    if q_key == "winner":
+        return f"""
+        <div class="team-form-card">
+            <div class="team-form-title">{home_team}</div>
+            <div>{_render_result_chips(home.get("results", []))}</div>
+            <div class="team-form-meta">{label}</div>
+        </div>
+        <div class="team-form-card" style="margin-top:0.55rem;">
+            <div class="team-form-title">{away_team}</div>
+            <div>{_render_result_chips(away.get("results", []))}</div>
+            <div class="team-form-meta">{label}</div>
+        </div>
+        """
+
+    metric_map = {
+        "fours": "fours",
+        "sixes": "sixes",
+        "wickets": "wickets",
+        "powerplay": "powerplay",
+        "dotballs": "dotballs",
+        "highest_over_score": "highest_over_score",
+        "totalscore": "totalscore",
+    }
+
+    metric_key = metric_map.get(q_key)
+    if not metric_key:
+        return ""
+
+    home_vals = home.get(metric_key, [])
+    away_vals = away.get(metric_key, [])
+    home_avg = home.get("avg", {}).get(metric_key)
+    away_avg = away.get("avg", {}).get(metric_key)
+    higher_better = metric_key not in ["dotballs"]
+
+    return f"""
+    <div class="team-form-card">
+        <div class="team-form-title">{home_team}</div>
+        <div>{_render_stat_chips(home_vals, higher_better)}</div>
+        <div class="team-form-meta">Avg: {_format_average(home_avg)} &middot; {label}</div>
+    </div>
+    <div class="team-form-card" style="margin-top:0.55rem;">
+        <div class="team-form-title">{away_team}</div>
+        <div>{_render_stat_chips(away_vals, higher_better)}</div>
+        <div class="team-form-meta">Avg: {_format_average(away_avg)} &middot; {label}</div>
+    </div>
+    """
+
+
 def body_rendering():
     ## Now lets add match details.
 
@@ -440,75 +712,218 @@ def form_rendering():
         ## Add headers
 
         match_details = json.loads(st.session_state.next_matches)[0]
+        insight_data = get_recent_team_insights(match_details)
 
-        st.subheader("Select Booster for this match")
-        booster_1, booster_2, booster_3 = st.columns(3, border=True)
-        st.divider()
+        home_team = match_details.get("HomeTeam")
+        away_team = match_details.get("AwayTeam")
+        home_insights = insight_data.get("home", {})
+        away_insights = insight_data.get("away", {})
 
-        booster_5x, booster_3x, booster_2x, booster_data = get_booster_information()
-
-        booster_1.markdown("#### 5x Booster")
-
-        booster_1.toggle(
-            "5x 🔥🔥🔥🔥🔥",
-            disabled=booster_5x,
-            label_visibility="visible",
-            help=(
-                "5X of your total score"
-                if booster_5x is False
-                else f"Booster was used in match number {booster_data.get('booster_1')}"
-            ),
-            key="booster_1",
-            on_change=multi_select_check_1,
+        # ── Shared CSS for prediction cards ──
+        st.markdown(
+            """
+            <style>
+            .team-form-card {
+                border: 1px solid var(--app-border);
+                border-radius: 16px;
+                background: var(--app-surface);
+                box-shadow: var(--app-shadow);
+                padding: 0.82rem 0.88rem;
+            }
+            .team-form-title {
+                font-family: "Space Grotesk", sans-serif;
+                font-size: 0.95rem;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+            }
+            .result-chip {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 2.1rem;
+                height: 2.1rem;
+                border-radius: 999px;
+                font-weight: 700;
+                margin-right: 0.3rem;
+                border: 1px solid transparent;
+                font-size: 0.85rem;
+            }
+            .result-chip-win {
+                background: rgba(25, 135, 84, 0.16);
+                color: #198754;
+                border-color: rgba(25, 135, 84, 0.34);
+            }
+            .result-chip-loss {
+                background: rgba(220, 53, 69, 0.12);
+                color: #dc3545;
+                border-color: rgba(220, 53, 69, 0.28);
+            }
+            .result-chip-neutral {
+                background: rgba(108, 117, 125, 0.15);
+                color: #6c757d;
+                border-color: rgba(108, 117, 125, 0.3);
+            }
+            .team-form-meta {
+                color: var(--app-muted);
+                margin-top: 0.38rem;
+                font-size: 0.84rem;
+            }
+            .stat-chip {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 2.1rem;
+                height: 2.1rem;
+                border-radius: 999px;
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 700;
+                font-size: 0.85rem;
+                margin-right: 0.3rem;
+                margin-bottom: 0.2rem;
+                padding: 0 0.45rem;
+                background: rgba(15, 108, 189, 0.12);
+                color: #0f6cbd;
+                border: 1px solid rgba(15, 108, 189, 0.28);
+            }
+            .stat-chip-win {
+                background: rgba(25, 135, 84, 0.16);
+                color: #198754;
+                border-color: rgba(25, 135, 84, 0.34);
+            }
+            .stat-chip-loss {
+                background: rgba(220, 53, 69, 0.12);
+                color: #dc3545;
+                border-color: rgba(220, 53, 69, 0.28);
+            }
+            .stat-chip-tie {
+                background: rgba(255, 193, 7, 0.16);
+                color: #b8860b;
+                border-color: rgba(255, 193, 7, 0.38);
+            }
+            .question-card-title {
+                margin-bottom: 0.05rem;
+            }
+            .question-card-points {
+                color: var(--app-muted);
+                font-size: 0.88rem;
+                margin-bottom: 0.35rem;
+            }
+            .booster-card-title {
+                font-family: "Space Grotesk", sans-serif;
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin-bottom: 0.15rem;
+            }
+            .booster-card-desc {
+                color: var(--app-muted);
+                font-size: 0.88rem;
+            }
+            </style>
+            <style>
+            /* Orange toggle for booster switches */
+            [data-testid="stToggle"] label > div[data-testid="stToggleSwitch"] > div {
+                background-color: rgba(244, 163, 0, 0.4) !important;
+                border-radius: 999px !important;
+            }
+            [data-testid="stToggle"] label > div[data-testid="stToggleSwitch"] > div[aria-checked="true"] {
+                background-color: #f4a300 !important;
+            }
+            [data-testid="stToggle"] label > div[data-testid="stToggleSwitch"] > div > div {
+                background-color: #fff !important;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            }
+            [data-testid="stToggle"] label > span {
+                font-weight: 700 !important;
+                font-size: 0.95rem !important;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
         )
-        booster_2.markdown("#### 3x Booster")
-        booster_2.toggle(
-            "3x 🔥🔥🔥 ",
-            disabled=booster_3x,
-            label_visibility="visible",
-            help=(
-                "3X of your total score"
-                if booster_3x is False
-                else f"Booster was used in match number {booster_data.get('booster_2')}"
-            ),
-            key="booster_2",
-            on_change=multi_select_check_2,
-        )
-        booster_3.markdown("#### 2x Booster")
-        booster_3.toggle(
-            "2x 🔥🔥",
-            disabled=booster_2x,
-            label_visibility="visible",
-            help=(
-                "2X of your total score"
-                if booster_2x is False
-                else f"Booster was used in match number {booster_data.get('booster_3')}"
-            ),
-            key="booster_3",
-            on_change=multi_select_check_3,
-        )
 
-        with st.form("predictions", clear_on_submit=True, enter_to_submit=False):
-            st.subheader("Select Predictions for this match")
-            for question in st.session_state.json_metadata.get("question_list"):
-                left_container, right_container = st.columns(2, border=False)
-                left_container.markdown(
-                    f"**{question.get('questions')}**\n\n{question.get('points')} points available"
+        with st.container(border=True):
+            st.markdown(
+                "<div class='booster-card-title'>Select Booster for this match</div>"
+                "<div class='booster-card-desc'>Pick one booster to multiply your score for this fixture</div>",
+                unsafe_allow_html=True,
+            )
+
+            booster_5x, booster_3x, booster_2x, booster_data = get_booster_information()
+
+            booster_1, booster_2, booster_3 = st.columns(3)
+
+            with booster_1:
+                st.toggle(
+                    "5x Booster 🔥🔥🔥🔥🔥",
+                    disabled=booster_5x,
+                    label_visibility="visible",
+                    help=(
+                        "5X of your total score"
+                        if booster_5x is False
+                        else f"Booster was used in match number {booster_data.get('booster_1')}"
+                    ),
+                    key="booster_1",
+                    on_change=multi_select_check_1,
+                )
+
+            with booster_2:
+                st.toggle(
+                    "3x Booster 🔥🔥🔥",
+                    disabled=booster_3x,
+                    label_visibility="visible",
+                    help=(
+                        "3X of your total score"
+                        if booster_3x is False
+                        else f"Booster was used in match number {booster_data.get('booster_2')}"
+                    ),
+                    key="booster_2",
+                    on_change=multi_select_check_2,
+                )
+
+            with booster_3:
+                st.toggle(
+                    "2x Booster 🔥🔥",
+                    disabled=booster_2x,
+                    label_visibility="visible",
+                    help=(
+                        "2X of your total score"
+                        if booster_2x is False
+                        else f"Booster was used in match number {booster_data.get('booster_3')}"
+                    ),
+                    key="booster_3",
+                    on_change=multi_select_check_3,
+                )
+
+        st.subheader("Select Predictions for this match")
+        for question in st.session_state.json_metadata.get("question_list"):
+            with st.container(border=True):
+                st.markdown(
+                    f"<div class='question-card-title'><strong>{question.get('questions')}</strong></div>"
+                    f"<div class='question-card-points'>{question.get('points')} points available</div>",
+                    unsafe_allow_html=True,
+                )
+                st.markdown(
+                    get_question_insight_html(
+                        question.get("q_key"),
+                        home_team,
+                        away_team,
+                        home_insights,
+                        away_insights,
+                    ),
+                    unsafe_allow_html=True,
                 )
                 if question.get("display_type") == "radio":
-                    right_container.radio(
-                        label="Select Below",
-                        options=[
-                            match_details.get("HomeTeam"),
-                            match_details.get("AwayTeam"),
-                        ],
+                    st.radio(
+                        label="Your pick",
+                        options=[home_team, away_team],
                         key=question.get("q_key"),
+                        horizontal=True,
                     )
                 elif question.get("display_type") == "slider" and question.get(
                     "q_key"
                 ) in ["totalscore"]:
-                    right_container.slider(
-                        label="Select Below",
+                    st.slider(
+                        label="Your total score prediction",
                         key=question.get("q_key"),
                         min_value=1,
                         max_value=600,
@@ -516,15 +931,15 @@ def form_rendering():
                 elif question.get("display_type") == "slider" and question.get(
                     "q_key"
                 ) in ["highest_over_score"]:
-                    right_container.slider(
-                        label="Select Below",
+                    st.slider(
+                        label="Your highest over score prediction",
                         key=question.get("q_key"),
                         min_value=1,
                         max_value=45,
                     )
                 else:
                     continue
-            st.form_submit_button("Submit Predictions", on_click=store_data_values)
+        st.button("Submit Predictions", on_click=store_data_values, type="primary")
 
 
 def check_match_date_selected():
@@ -633,7 +1048,7 @@ def display_details_of_the_prediction():
         return True
 
 
-if st.suspend == True:
+if st.suspend:
     st.header("Due to Operations Sindoor !! Prediction game is suspended")
 elif st.ipl_completed:
     st.header("IPL Completed thanks for playing predictor game")

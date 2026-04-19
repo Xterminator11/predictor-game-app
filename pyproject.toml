@@ -13,5 +13,6 @@ dependencies = [
     "pydantic-settings",
     "ruff",
     "s3fs>=0.4.2",
+    "scrapy>=2.14.2",
     "streamlit",
 ]
