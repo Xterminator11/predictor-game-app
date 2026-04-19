@@ -1165,7 +1165,7 @@ def show_match_cards():
         status_class = "locked" if locked else "unlocked"
         match_date = pd.to_datetime(match["DateUtc"], errors="coerce")
         date_label = (
-            match_date.strftime("%a, %d %b · %I:%M %p UTC")
+            (match_date - pd.Timedelta(hours=6)).strftime("%a, %d %b · %I:%M %p CST")
             if pd.notna(match_date)
             else str(match["DateUtc"])
         )
