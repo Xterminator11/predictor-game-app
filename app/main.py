@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import streamlit as st
 import pandas as pd
 import botocore
+import pytz
 from modules.navigator import Navbar
 from modules.ui import (
     apply_theme,
@@ -1165,7 +1166,9 @@ def show_match_cards():
         status_class = "locked" if locked else "unlocked"
         match_date = pd.to_datetime(match["DateUtc"], errors="coerce")
         date_label = (
-            (match_date - pd.Timedelta(hours=6)).strftime("%a, %d %b · %I:%M %p CST")
+            match_date.tz_localize("UTC")
+            .tz_convert("US/Central")
+            .strftime("%a, %d %b · %I:%M %p %Z")
             if pd.notna(match_date)
             else str(match["DateUtc"])
         )
