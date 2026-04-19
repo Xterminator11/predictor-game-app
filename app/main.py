@@ -1047,8 +1047,8 @@ def show_match_cards():
         .match-card-link * { text-decoration: none !important; }
         .match-card {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            flex-direction: column;
+            gap: 0.75rem;
             border: 1px solid rgba(15, 108, 189, 0.18);
             border-radius: 16px;
             padding: 1.1rem 1.4rem;
@@ -1062,13 +1062,20 @@ def show_match_cards():
             box-shadow: 0 16px 32px rgba(15, 108, 189, 0.13);
             border-color: rgba(15, 108, 189, 0.40);
         }
+        .match-card-teams-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
         .match-card .team-logo {
-            width: 52px;
-            height: 52px;
+            width: 44px;
+            height: 44px;
             object-fit: contain;
-            border-radius: 12px;
+            border-radius: 10px;
             background: #ffffff;
-            padding: 0.3rem;
+            padding: 0.25rem;
             border: 1px solid rgba(15, 108, 189, 0.10);
             flex-shrink: 0;
         }
@@ -1083,19 +1090,21 @@ def show_match_cards():
             font-weight: 700;
             font-size: 1rem;
             letter-spacing: -0.01em;
-            white-space: nowrap;
+            text-align: center;
+            word-break: break-word;
+            hyphens: auto;
         }
         .match-card .match-meta {
-            margin-left: auto;
             display: flex;
             align-items: center;
+            justify-content: space-between;
             gap: 0.75rem;
-            flex-shrink: 0;
+            flex-wrap: wrap;
         }
         .match-card .match-date {
             color: #5b6b8d;
             font-size: 0.88rem;
-            white-space: nowrap;
+            word-break: break-word;
         }
         .match-card .match-status {
             display: inline-flex;
@@ -1105,6 +1114,7 @@ def show_match_cards():
             border-radius: 999px;
             font-size: 0.82rem;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         .match-card .match-status.locked {
             color: #1f7a32;
@@ -1119,6 +1129,23 @@ def show_match_cards():
             font-size: 1.2rem;
             font-weight: 700;
             flex-shrink: 0;
+        }
+        @media (min-width: 768px) {
+            .match-card {
+                flex-direction: row;
+                align-items: center;
+            }
+            .match-card-teams-section {
+                flex: 1;
+                justify-content: flex-start;
+            }
+            .match-card .match-teams {
+                text-align: left;
+            }
+            .match-card .match-meta {
+                margin-left: auto;
+                flex-shrink: 0;
+            }
         }
         </style>
         """,
@@ -1148,10 +1175,12 @@ def show_match_cards():
             f"""
             <a class="match-card-link" href="?match={match_id}">
                 <div class="match-card">
-                    <img class="team-logo" src="{home_logo}" alt="{match["HomeTeam"]}" />
-                    <span class="vs-label">vs</span>
-                    <img class="team-logo" src="{away_logo}" alt="{match["AwayTeam"]}" />
-                    <span class="match-teams">{match["HomeTeam"]} vs {match["AwayTeam"]}</span>
+                    <div class="match-card-teams-section">
+                        <img class="team-logo" src="{home_logo}" alt="{match["HomeTeam"]}" />
+                        <span class="vs-label">vs</span>
+                        <img class="team-logo" src="{away_logo}" alt="{match["AwayTeam"]}" />
+                        <span class="match-teams">{match["HomeTeam"]} vs {match["AwayTeam"]}</span>
+                    </div>
                     <div class="match-meta">
                         <span class="match-date">{date_label}</span>
                         <span class="match-status {status_class}">{status}</span>
