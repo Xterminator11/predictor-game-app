@@ -467,6 +467,14 @@ if socket.gethostname() == "Gururajs-MacBook-Pro.local":
                         st.session_state.current_match_dictionary.get("MatchNumber") - 2
                     )
                     or option_entry.get("MatchNumber")
+                    == (
+                        st.session_state.current_match_dictionary.get("MatchNumber") - 3
+                    )
+                    or option_entry.get("MatchNumber")
+                    == (
+                        st.session_state.current_match_dictionary.get("MatchNumber") - 4
+                    )
+                    or option_entry.get("MatchNumber")
                     == (st.session_state.current_match_dictionary.get("MatchNumber"))
                 ):
                     match_number = (
@@ -561,6 +569,12 @@ else:
                         or option_entry.get("MatchNumber")
                         == (
                             st.session_state.current_match_dictionary.get("MatchNumber")
+                            - 3
+                        )
+                        or option_entry.get("MatchNumber")
+                        == (
+                            st.session_state.current_match_dictionary.get("MatchNumber")
+                            - 4
                         )
                     ):
                         match_number = (

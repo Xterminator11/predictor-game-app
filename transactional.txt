@@ -1,1 +1,1262 @@
-[{"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "gururajrao", "AggregatePoints": 19.380000000000003, "BoosterIndicator": ""}, {"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "vishwakanthreddych", "AggregatePoints": 23.84, "BoosterIndicator": ""}, {"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "nishantsingh", "AggregatePoints": 0.0, "BoosterIndicator": ""}, {"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "amanverma", "AggregatePoints": 29.9, "BoosterIndicator": ""}, {"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "aanjopremlal", "AggregatePoints": 19.56, "BoosterIndicator": "2x"}, {"MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad", "UserName": "prabhuantony", "AggregatePoints": 24.310000000000002, "BoosterIndicator": ""}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "gururajrao", "AggregatePoints": 34.03, "BoosterIndicator": ""}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "vishwakanthreddych", "AggregatePoints": 170.05, "BoosterIndicator": "5x"}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "nishantsingh", "AggregatePoints": 32.41, "BoosterIndicator": ""}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "amanverma", "AggregatePoints": 33.13, "BoosterIndicator": ""}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "aanjopremlal", "AggregatePoints": 14.12, "BoosterIndicator": ""}, {"MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders", "UserName": "prabhuantony", "AggregatePoints": 32.5, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "gururajrao", "AggregatePoints": 22.05, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "vishwakanthreddych", "AggregatePoints": 45.2, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "nishantsingh", "AggregatePoints": 31.240000000000002, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "amanverma", "AggregatePoints": 45.8, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "aanjopremlal", "AggregatePoints": 29.47, "BoosterIndicator": ""}, {"MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings", "UserName": "prabhuantony", "AggregatePoints": 46.02, "BoosterIndicator": ""}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "gururajrao", "AggregatePoints": 79.77, "BoosterIndicator": "3x"}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "vishwakanthreddych", "AggregatePoints": 31.32, "BoosterIndicator": ""}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "nishantsingh", "AggregatePoints": 27.83, "BoosterIndicator": ""}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "amanverma", "AggregatePoints": 38.21, "BoosterIndicator": ""}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "aanjopremlal", "AggregatePoints": 27.15, "BoosterIndicator": ""}, {"MatchNumber": "04 - Punjab Kings vs Gujarat Titans", "UserName": "prabhuantony", "AggregatePoints": 0.0, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "gururajrao", "AggregatePoints": 17.37, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "vishwakanthreddych", "AggregatePoints": 26.75, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "nishantsingh", "AggregatePoints": 0.0, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "amanverma", "AggregatePoints": 23.38, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "aanjopremlal", "AggregatePoints": 36.34, "BoosterIndicator": ""}, {"MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals", "UserName": "prabhuantony", "AggregatePoints": 29.96, "BoosterIndicator": ""}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "gururajrao", "AggregatePoints": 68.34, "BoosterIndicator": "2x"}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "vishwakanthreddych", "AggregatePoints": 47.55, "BoosterIndicator": ""}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "nishantsingh", "AggregatePoints": 48.64, "BoosterIndicator": ""}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "amanverma", "AggregatePoints": 42.56, "BoosterIndicator": ""}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "aanjopremlal", "AggregatePoints": 42.59, "BoosterIndicator": ""}, {"MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad", "UserName": "prabhuantony", "AggregatePoints": 17.259999999999998, "BoosterIndicator": ""}]
+[
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 24.310000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 19.56,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 23.84,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "gururajrao",
+    "AggregatePoints": 19.380000000000003,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "amanverma",
+    "AggregatePoints": 29.9,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "01 - Royal Challengers Bengaluru vs Sunrisers Hyderabad",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 32.5,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 14.12,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 170.05,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "gururajrao",
+    "AggregatePoints": 34.03,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "amanverma",
+    "AggregatePoints": 33.13,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "02 - Mumbai Indians vs Kolkata Knight Riders",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 32.41,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 46.02,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 29.47,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 45.2,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 22.05,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 45.8,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "03 - Rajasthan Royals vs Chennai Super Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 31.240000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 27.15,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 31.32,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "gururajrao",
+    "AggregatePoints": 79.77,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "amanverma",
+    "AggregatePoints": 38.21,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "04 - Punjab Kings vs Gujarat Titans",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 27.83,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 29.96,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 36.34,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 26.75,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 17.37,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "amanverma",
+    "AggregatePoints": 23.38,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "05 - Lucknow Super Giants vs Delhi Capitals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 17.259999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 42.59,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 47.55,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "gururajrao",
+    "AggregatePoints": 68.34,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "amanverma",
+    "AggregatePoints": 42.56,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "06 - Kolkata Knight Riders vs Sunrisers Hyderabad",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 48.64,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 45.14,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 135.78,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 47.5,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 46.21,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "07 - Chennai Super Kings vs Punjab Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 27.5,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 27.52,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "amanverma",
+    "AggregatePoints": 27.189999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 20.14,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 51.2,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "08 - Delhi Capitals vs Mumbai Indians",
+    "UserName": "gururajrao",
+    "AggregatePoints": 26.759999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 36.65,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 31.6,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 24.52,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 115.44,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "amanverma",
+    "AggregatePoints": 70.86,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "09 - Gujarat Titans vs Rajasthan Royals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 43.85,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 31.490000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "gururajrao",
+    "AggregatePoints": 175.85,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 33.64,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 31.11,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "10 - Sunrisers Hyderabad vs Lucknow Super Giants",
+    "UserName": "amanverma",
+    "AggregatePoints": 31.68,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 63.44,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 45.25,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 33.63,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 33.66,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 171.9,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "11 - Royal Challengers Bengaluru vs Chennai Super Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "gururajrao",
+    "AggregatePoints": 23.45,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 28.26,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 38.6,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 18.13,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "13 - Rajasthan Royals vs Mumbai Indians",
+    "UserName": "amanverma",
+    "AggregatePoints": 25.15,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "gururajrao",
+    "AggregatePoints": 44.14,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 41.06,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "amanverma",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "14 - Delhi Capitals vs Gujarat Titans",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 23.4,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 31.86,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "gururajrao",
+    "AggregatePoints": 32.17,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 30.45,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "amanverma",
+    "AggregatePoints": 34.86,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 30.490000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "15 - Kolkata Knight Riders vs Lucknow Super Giants",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 38.53,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "gururajrao",
+    "AggregatePoints": 34.480000000000004,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "amanverma",
+    "AggregatePoints": 43.85,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 48.65,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 34.019999999999996,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "16 - Rajasthan Royals vs Royal Challengers Bengaluru",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 49.07,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 43.36,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 42.71,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "amanverma",
+    "AggregatePoints": 21.560000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "gururajrao",
+    "AggregatePoints": 27.310000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 28.880000000000003,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "17 - Punjab Kings vs Sunrisers Hyderabad",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 33.07,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "amanverma",
+    "AggregatePoints": 39.07,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 86.76,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 40.519999999999996,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "18 - Chennai Super Kings vs Delhi Capitals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 28.950000000000003,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 185.95,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 27.75,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 36.54,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 128.15,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "amanverma",
+    "AggregatePoints": 187.7,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "19 - Lucknow Super Giants vs Gujarat Titans",
+    "UserName": "gururajrao",
+    "AggregatePoints": 37.28,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 21.08,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 21.150000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 139.53,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "gururajrao",
+    "AggregatePoints": 32.17,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "amanverma",
+    "AggregatePoints": 139.5,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "20 - Mumbai Indians vs Royal Challengers Bengaluru",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 44.29,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 36.58,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 18.32,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "amanverma",
+    "AggregatePoints": 18.509999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "21 - Sunrisers Hyderabad vs Rajasthan Royals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 27.33,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 124.8,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "amanverma",
+    "AggregatePoints": 43.33,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "gururajrao",
+    "AggregatePoints": 32.33,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 43.980000000000004,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 22.89,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "22 - Chennai Super Kings vs Kolkata Knight Riders",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 48.72,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "gururajrao",
+    "AggregatePoints": 40.32,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 231.15,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 46.89,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 238,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "23 - Royal Challengers Bengaluru vs Lucknow Super Giants",
+    "UserName": "amanverma",
+    "AggregatePoints": 135.03,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 24.39,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 24.189999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 41.81,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 23.6,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 24.95,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "24 - Mumbai Indians vs Punjab Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 38.83,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "gururajrao",
+    "AggregatePoints": 37.14,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "amanverma",
+    "AggregatePoints": 43.72,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 39.97,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 36.14,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 191.4,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "25 - Gujarat Titans vs Kolkata Knight Riders",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 77.78,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "amanverma",
+    "AggregatePoints": 29.58,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 27.740000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 24.599999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 94.53,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 26.32,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "26 - Royal Challengers Bengaluru vs Delhi Capitals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 31.46,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 33.19,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 24.23,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 32.95,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 33.75,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "27 - Sunrisers Hyderabad vs Chennai Super Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 33.46,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "amanverma",
+    "AggregatePoints": 46.260000000000005,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 66.93,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 27.97,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 82.77,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 67.5,
+    "BoosterIndicator": "3x"
+  },
+  {
+    "MatchNumber": "28 - Kolkata Knight Riders vs Rajasthan Royals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 21.09,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "gururajrao",
+    "AggregatePoints": 39.84,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 40.72,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "amanverma",
+    "AggregatePoints": 200.25,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 39.75,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 39.69,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "29 - Punjab Kings vs Lucknow Super Giants",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 25.61,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 19.98,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "amanverma",
+    "AggregatePoints": 26.09,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 44.97,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 15.89,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "30 - Gujarat Titans vs Mumbai Indians",
+    "UserName": "gururajrao",
+    "AggregatePoints": 24.64,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 38.43,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 28.490000000000002,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "amanverma",
+    "AggregatePoints": 48.29,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 33.15,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 48.769999999999996,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "31 - Sunrisers Hyderabad vs Delhi Capitals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 37.53,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 40.480000000000004,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "amanverma",
+    "AggregatePoints": 39.15,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 33.68,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 18.33,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "32 - Lucknow Super Giants vs Rajasthan Royals",
+    "UserName": "gururajrao",
+    "AggregatePoints": 39.87,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 24.64,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 14.879999999999999,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 15.620000000000001,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 15.09,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 42.59,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "33 - Mumbai Indians vs Chennai Super Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 34.48,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 35.57,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "gururajrao",
+    "AggregatePoints": 37.79,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "amanverma",
+    "AggregatePoints": 38.41,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 42.54,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 37.65,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "34 - Royal Challengers Bengaluru vs Gujarat Titans",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 38.51,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 0,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "gururajrao",
+    "AggregatePoints": 63.78,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "amanverma",
+    "AggregatePoints": 29.85,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 79.56,
+    "BoosterIndicator": "2x"
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 29.7,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "35 - Delhi Capitals vs Punjab Kings",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 155.25,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "aanjopremlal",
+    "AggregatePoints": 23.439999999999998,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "prabhuantony",
+    "AggregatePoints": 23.369999999999997,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "vishwakanthreddych",
+    "AggregatePoints": 44.32,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "amanverma",
+    "AggregatePoints": 48,
+    "BoosterIndicator": ""
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "gururajrao",
+    "AggregatePoints": 215.15,
+    "BoosterIndicator": "5x"
+  },
+  {
+    "MatchNumber": "36 - Rajasthan Royals vs Sunrisers Hyderabad",
+    "UserName": "nishantsingh",
+    "AggregatePoints": 27.380000000000003,
+    "BoosterIndicator": ""
+  }
+]

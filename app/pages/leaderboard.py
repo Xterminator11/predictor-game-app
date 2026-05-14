@@ -167,6 +167,15 @@ def format_booster_display(booster_indicator):
     return booster_map.get(indicator, "No booster")
 
 
+def parse_match_number(match_number):
+    try:
+        match_number_str = str(match_number).strip()
+        prefix = match_number_str.split(" - ")[0].strip()
+        return int(prefix)
+    except Exception:
+        return float("inf")
+
+
 def render_summary_card(column, label, value, caption=""):
     caption_content = caption if caption else "&nbsp;"
     column.markdown(
@@ -221,9 +230,11 @@ def render_user_match_cards(df, title):
     if df.empty:
         st.info("No records available yet.")
         return
-    sorted_df = df.sort_values(by="AggregatePoints", ascending=False).reset_index(
-        drop=True
-    )
+    sorted_df = df.sort_values(
+        by="MatchNumber",
+        key=lambda col: col.apply(parse_match_number),
+        ascending=True,
+    ).reset_index(drop=True)
     for _, row in sorted_df.iterrows():
         booster = format_booster_display(row.get("BoosterIndicator", ""))
         render_list_card(
